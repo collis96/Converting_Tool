@@ -7,44 +7,41 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <TextView
+        android:id="@+id/tvTo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:rotation="90"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        app:layout_constraintBottom_toBottomOf="@+id/spMeasurementFrom"
-        app:layout_constraintEnd_toStartOf="@+id/spMeasurementTo"
-        app:layout_constraintStart_toEndOf="@+id/spMeasurementFrom"
-        app:layout_constraintTop_toTopOf="@+id/spMeasurementFrom"
-        app:srcCompat="@android:drawable/arrow_up_float" />
+        android:text="@string/to"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/spUnitFrom"
+        app:layout_constraintEnd_toStartOf="@+id/spUnitTo"
+        app:layout_constraintStart_toEndOf="@+id/spUnitFrom"
+        app:layout_constraintTop_toTopOf="@+id/spUnitFrom" />
 
     <Spinner
         android:id="@+id/spUnitFrom"
-        android:layout_width="135dp"
+        android:layout_width="150dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvUnit"
         app:layout_constraintTop_toBottomOf="@+id/tvUnit"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spUnitTo"
-        android:layout_width="135dp"
+        android:layout_width="150dp"
         android:layout_height="53dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTo2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintStart_toEndOf="@+id/spUnitFrom"
+        app:layout_constraintTop_toTopOf="@+id/tvTo2" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -54,7 +51,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/convert"
+        android:text="@string/title"
         android:textColor="@color/colorWhite"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -86,28 +83,28 @@
 
     <Spinner
         android:id="@+id/spMeasurementFrom"
-        android:layout_width="135dp"
+        android:layout_width="150dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:entries="@array/spMeasurement"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spMeasurementTo"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvMeasurement"
         app:layout_constraintTop_toBottomOf="@+id/tvMeasurement"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spMeasurementTo"
-        android:layout_width="135dp"
+        android:layout_width="150dp"
         android:layout_height="53dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:entries="@array/spMeasurement"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/spMeasurementFrom"
+        app:layout_constraintTop_toTopOf="@+id/tvTo" />
 
     <TextView
         android:id="@+id/tvUnit"
@@ -214,31 +211,32 @@
         app:layout_constraintTop_toBottomOf="@+id/tvOuputText"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvOutput"
+        app:layout_constraintTop_toBottomOf="@+id/tvOutput"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:rotation="90"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        app:layout_constraintBottom_toBottomOf="@+id/spUnitFrom"
-        app:layout_constraintEnd_toStartOf="@+id/spUnitTo"
-        app:layout_constraintStart_toEndOf="@+id/spUnitFrom"
-        app:layout_constraintTop_toTopOf="@+id/spUnitFrom"
-        app:srcCompat="@android:drawable/arrow_up_float" />
-
-    <!--<com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/adView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--ads:adSize="BANNER"-->
-        <!--ads:adUnitId=""-->
-        <!--ads:layout_constraintBottom_toBottomOf="parent"-->
-        <!--ads:layout_constraintEnd_toEndOf="parent"-->
-        <!--ads:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>-->
+        android:text="@string/to"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/spMeasurementFrom"
+        app:layout_constraintEnd_toStartOf="@+id/spMeasurementTo"
+        app:layout_constraintStart_toEndOf="@+id/spMeasurementFrom"
+        app:layout_constraintTop_toTopOf="@+id/spMeasurementFrom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

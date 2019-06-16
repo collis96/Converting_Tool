@@ -3,20 +3,14 @@ package com.arcticumi.convert;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdView;
-//import com.google.android.gms.ads.MobileAds;
-//import com.google.android.gms.ads.AdRequest;
-//import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private double output;
     private String measurementFrom, measurementTo, unit, outputUnit, outputUnitSymbol;
     private static final String TAG = "MainActivity";
-//    private AdView mAdView;
 
 
     @Override
@@ -32,17 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        MobileAds.initialize(this, ""); //IMPORTANT: Make sure when TESTING to use a TEST AD: "ca-app-pub-3940256099942544/6300978111"
-//        //my add ID: ca-app-pub-7830071105851856~3934342247
-//
-//        mAdView = findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
-
         final Conversions convert = new Conversions();
         final TextView tvOutput = findViewById(R.id.tvOutput);
         final TextView tvUnitDisplay = findViewById(R.id.tvUnitDisplay);
         final EditText etInput = findViewById(R.id.etInput);
+        Button bt = findViewById(R.id.button);
         final Spinner spUnitFrom = findViewById(R.id.spUnitFrom);
         final Spinner spUnitTo = findViewById(R.id.spUnitTo);
         Spinner spMeasurementFrom = findViewById(R.id.spMeasurementFrom);
@@ -122,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         spUnitFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                etInput.setText(String.valueOf(input));
+//                etInput.setText(String.valueOf(input));
                 unit = parent.getItemAtPosition(position).toString();
                 switch (unit) {
                     case "Centimetres":
@@ -157,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 outputUnitSymbol = parent.getItemAtPosition(position).toString();
-                etInput.setText(String.valueOf(input));
+//                etInput.setText(String.valueOf(input));
             }
 
             @Override
@@ -166,22 +153,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        etInput.addTextChangedListener(new TextWatcher() {
-
+        bt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-
-
-            @Override
-            public void afterTextChanged(Editable s) {
+            public void onClick(View v) {
                 try {
                     input = Double.valueOf(String.valueOf(etInput.getText()));
                     switch (unit) {
@@ -210,175 +184,152 @@ public class MainActivity extends AppCompatActivity {
                             output = convert.getOutput();
                             break;
                     } //todo put in another function
-                    formatNumber(unit, output);
+                    Format fm = new Format(unit,outputUnitSymbol, output);
+                    outputUnit = fm.getOutput();
                     tvOutput.setText(outputUnit);
                 } catch (NumberFormatException ignored) {
                 } catch (NullPointerException e) {
                     Log.e(TAG, "afterTextChanged: " + e);
                 }
-
             }
         });
 
     }
 
-    public void formatNumber(String unit, double convertedNum) {
-        if (unit.equals("Inches")) {
-            switch (outputUnitSymbol) { //todo put switch in another function
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " Km";
-                    break;
-            }
-        } else if (unit.equals("Feet")) {
-            switch (outputUnitSymbol) {
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " Km";
-                    break;
-            }
-        } else if (unit.equals("Miles")) {
-            switch (outputUnitSymbol) {
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " km";
-                    break;
-            }
-        } else if (unit.equals("Centimetres")) {
-            switch (outputUnitSymbol) {
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " Km";
-                    break;
-            }
-        } else if (unit.equals("Metres")) {
-            switch (outputUnitSymbol) {
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " Km";
-                    break;
-            }
-        } else if (unit.equals("Kilometres")) {
-            switch (outputUnitSymbol) {
-                case "Inches":
-                    outputUnit = roundTwo(convertedNum) + " in";
-                    break;
-                case "Feet":
-                    outputUnit = roundTwo(convertedNum) + " ft";
-                    break;
-                case "Miles":
-                    outputUnit = roundTwo(convertedNum) + " M";
-                    break;
-                case "Centimetres":
-                    outputUnit = roundTwo(convertedNum) + " cm";
-                    break;
-                case "Metres":
-                    outputUnit = roundTwo(convertedNum) + " m";
-                    break;
-                case "Kilometres":
-                    outputUnit = roundTwo(convertedNum) + " Km";
-                    break;
-            }
-        }
-//        switch(unit){
-//            case "Centimetres":
-//            case "Metres":
-//                foot = convertedNum / 12;
-//                leftover = convertedNum % 12;
-//                foot -= (leftover / 12);
-//                leftover = roundTwo(leftover);
-//                outputUnit = Math.round(foot) + "ft" + leftover + "in";
-//                break;
-//            case "Kilometres":
-//                outputUnit = roundTwo(convertedNum) + " Miles";
-//                break;
-//            case "Inches":
-//                outputUnit = roundTwo(convertedNum) + " Centimetres";
-//                break;
-//            case "Feet":
-//                outputUnit = roundTwo(convertedNum) + " Metres";
-//                break;
-//            case "Miles":
-//                outputUnit = roundTwo(convertedNum) + " Kilometres";
-//                break;
+//    public void formatNumber(String inUnit, String outUnit, double convertedNum) {
+//        if (inUnit.equals("Inches")) {
+//            switch (outUnit) { //todo put switch in another function
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " Km";
+//                    break;
+//            }
+//        } else if (inUnit.equals("Feet")) {
+//            switch (outUnit) {
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " Km";
+//                    break;
+//            }
+//        } else if (inUnit.equals("Miles")) {
+//            switch (outUnit) {
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " km";
+//                    break;
+//            }
+//        } else if (inUnit.equals("Centimetres")) {
+//            switch (outUnit) {
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " Km";
+//                    break;
+//            }
+//        } else if (inUnit.equals("Metres")) {
+//            switch (outUnit) {
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " Km";
+//                    break;
+//            }
+//        } else if (inUnit.equals("Kilometres")) {
+//            switch (outUnit) {
+//                case "Inches":
+//                    outputUnit = roundTwo(convertedNum) + " in";
+//                    break;
+//                case "Feet":
+//                    outputUnit = roundTwo(convertedNum) + " ft";
+//                    break;
+//                case "Miles":
+//                    outputUnit = roundTwo(convertedNum) + " M";
+//                    break;
+//                case "Centimetres":
+//                    outputUnit = roundTwo(convertedNum) + " cm";
+//                    break;
+//                case "Metres":
+//                    outputUnit = roundTwo(convertedNum) + " m";
+//                    break;
+//                case "Kilometres":
+//                    outputUnit = roundTwo(convertedNum) + " Km";
+//                    break;
+//            }
 //        }
-        //todo feet and inches option
-    }
+//    }
 
-    public double roundTwo(double input) {
-        input = Math.round(input * 100);
-        input /= 100;
-        return input;
-    }
+//    public double roundTwo(double input) {
+//        input = Math.round(input * 100);
+//        input /= 100;
+//        return input;
+//    }
 
 }

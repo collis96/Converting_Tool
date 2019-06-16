@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Distance Conversion</string>
-    <string name="convert">Distance Conversion</string>
+    <string name="title">Distance Conversion</string>
+    <string name="button">Convert</string>
     <string name="calculate">Calculate</string>
     <string name="enter_value_here">Enter value here</string>
     <string name="measurement_system">Measurement System</string>
@@ -16,11 +17,11 @@
         <item>Metric</item>
     </string-array>
 
-    <string-array name="Quantities">
-        <item>Distance</item>
+    <!--<string-array name="Quantities">-->
+        <!--<item>Distance</item>-->
         <!--<item>Mass</item>-->
         <!--<item>Volume</item>-->
-    </string-array>
+    <!--</string-array>-->
 
     <string-array name="metricUnitsDistance">
         <item>Centimetres</item>
@@ -33,4 +34,5 @@
         <item>Feet</item>
         <item>Miles</item>
     </string-array>
+
 </resources>
