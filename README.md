@@ -1,12 +1,18 @@
 # Unit Conversion Tool (Mobile, Android)
 
-This is an android project that is intended to be a toolset for converting units of measurement.
+This is an android project that is intended to be a toolset for converting different units.
 
-#### //todo
+<a href="https://ibb.co/jJtxMTX"><img src="https://i.ibb.co/z6dLRrv/Screenshot-1562446644.png" alt="Screenshot-1562446644" border="0" /></a>
+
+#### Features:
 
 - [x] Implement Imperial and Metric systems
 - [x] Implement Distance conversion
-- [ ] Implement Time conversion
-- [ ] Implement Temperature Conversion
-- [ ] Redesign layout
-- [ ] Consider better suited design pattern for future extensibility
+- [x] New design
+- [ ] Add Time conversion
+- [ ] Add Temperature Conversion
+- [ ] Add Currency conversion
+
+#### App Store Link:
+
+Coming soon
