@@ -10,18 +10,13 @@
     <string name="unit">Unit</string>
     <string name="output">Output</string>
     <string name="to">To</string>
-
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_closed">Closed Navigation Drawer</string>
 
     <string-array name="spMeasurement">
         <item>Imperial</item>
         <item>Metric</item>
     </string-array>
-
-    <!--<string-array name="Quantities">-->
-        <!--<item>Distance</item>-->
-        <!--<item>Mass</item>-->
-        <!--<item>Volume</item>-->
-    <!--</string-array>-->
 
     <string-array name="metricUnitsDistance">
         <item>Centimetres</item>

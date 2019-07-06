@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/money"
+            android:icon="@drawable/ic_currency_24dp"
+            android:title="Currency" />
+        <item
+            android:id="@+id/time"
+            android:icon="@drawable/ic_time_24dp"
+            android:title="Time" />
+        <item
+            android:id="@+id/temp"
+            android:icon="@drawable/ic_temp_24dp"
+            android:title="Temperature" />
+        <item
+            android:id="@+id/distance"
+            android:icon="@drawable/ic_distance_24dp"
+            android:title="Distance" />
+        <item
+            android:id="@+id/storage"
+            android:icon="@drawable/ic_storage_24dp"
+            android:title="Storage" />
+    </group>
+</menu>
