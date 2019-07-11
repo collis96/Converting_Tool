@@ -16,21 +16,205 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
-        <TextView
-            android:id="@+id/testMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="test"
-            android:textSize="24sp"
-            android:textStyle="bold"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/csTop"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/colorDBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:text="Toolkit"
+                android:textColor="@color/colorWhite"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="georgia"
+                android:text="Conversion"
+                android:textColor="@color/colorWhite"
+                android:textSize="36sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_home_white_48dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/csTop"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintGuide_begin="205dp" />
+
+                <ImageView
+                    android:id="@+id/ivWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivCurrency"
+                    app:layout_constraintTop_toBottomOf="@+id/ivCurrency"
+                    app:srcCompat="@drawable/baseline_assignment_returned_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivTime"
+                    app:layout_constraintTop_toBottomOf="@+id/ivTime"
+                    app:srcCompat="@drawable/baseline_ac_unit_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivVolume"
+                    app:layout_constraintTop_toBottomOf="@+id/ivVolume"
+                    app:srcCompat="@drawable/baseline_attach_money_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivArea"
+                    app:layout_constraintTop_toBottomOf="@+id/ivArea"
+                    app:srcCompat="@drawable/baseline_schedule_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivVolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:scaleX="1.0"
+                    android:scaleY="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/ivDistance"
+                    app:layout_constraintTop_toBottomOf="@+id/ivDistance"
+                    app:srcCompat="@drawable/baseline_filter_none_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:scaleX="1.0"
+                    android:scaleY="1.0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/baseline_crop_din_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:scaleX="1.0"
+                    android:scaleY="1.0"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintHorizontal_bias="0.576"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/baseline_terrain_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivStorage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivTemp"
+                    app:layout_constraintTop_toBottomOf="@+id/ivTemp"
+                    app:srcCompat="@drawable/baseline_sd_storage_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivMagnetism"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivWeight"
+                    app:layout_constraintTop_toBottomOf="@+id/ivWeight"
+                    app:srcCompat="@drawable/baseline_blur_on_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivRadiation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivStorage"
+                    app:layout_constraintTop_toBottomOf="@+id/ivStorage"
+                    app:srcCompat="@drawable/baseline_flare_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/ivFluid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ivMagnetism"
+                    app:layout_constraintTop_toBottomOf="@+id/ivMagnetism"
+                    app:srcCompat="@drawable/baseline_opacity_black_48dp" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivRadiation"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRadiation"
+                    app:srcCompat="@drawable/baseline_dehaze_black_48dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

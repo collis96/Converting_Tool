@@ -2,24 +2,56 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/money"
-            android:icon="@drawable/ic_currency_24dp"
-            android:title="Currency" />
-        <item
-            android:id="@+id/time"
-            android:icon="@drawable/ic_time_24dp"
-            android:title="Time" />
-        <item
-            android:id="@+id/temp"
-            android:icon="@drawable/ic_temp_24dp"
-            android:title="Temperature" />
+            android:id="@id/home"
+            android:icon="@drawable/baseline_home_black_48dp"
+            android:title="Home" />
         <item
             android:id="@+id/distance"
-            android:icon="@drawable/ic_distance_24dp"
+            android:icon="@drawable/baseline_terrain_black_48dp"
             android:title="Distance" />
         <item
+            android:id="@+id/area"
+            android:icon="@drawable/baseline_crop_din_black_48dp"
+            android:title="Area" />
+        <item
+            android:id="@+id/volume"
+            android:icon="@drawable/baseline_filter_none_black_48dp"
+            android:title="Volume" />
+        <item
+            android:id="@+id/time"
+            android:icon="@drawable/baseline_schedule_black_48dp"
+            android:title="Time" />
+        <item
+            android:id="@+id/Currency"
+            android:icon="@drawable/baseline_attach_money_black_48dp"
+            android:title="Currency" />
+        <item
+            android:id="@+id/temp"
+            android:icon="@drawable/baseline_ac_unit_black_48dp"
+            android:title="Temperature" />
+        <item
+            android:id="@+id/weight"
+            android:icon="@drawable/baseline_assignment_returned_black_48dp"
+            android:title="Weight" />
+        <item
             android:id="@+id/storage"
-            android:icon="@drawable/ic_storage_24dp"
+            android:icon="@drawable/baseline_sd_storage_black_48dp"
             android:title="Storage" />
+        <item
+            android:id="@+id/magnetism"
+            android:icon="@drawable/baseline_blur_on_black_48dp"
+            android:title="Magnetism" />
+        <item
+            android:id="@+id/radiation"
+            android:icon="@drawable/baseline_flare_black_48dp"
+            android:title="Radiation" />
+        <item
+            android:id="@+id/fluid"
+            android:icon="@drawable/baseline_opacity_black_48dp"
+            android:title="Fluid" />
+        <item
+            android:id="@+id/other"
+            android:icon="@drawable/baseline_dehaze_black_48dp"
+            android:title="Other" />
     </group>
 </menu>
