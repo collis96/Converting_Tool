@@ -67,7 +67,7 @@
                 android:contentDescription="@string/home"
                 app:layout_constraintBottom_toBottomOf="@+id/tvToolkit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintStart_toEndOf="@+id/tvToolkit"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
                 app:srcCompat="@drawable/baseline_home_white_48dp" />
@@ -92,10 +92,15 @@
                     android:id="@+id/guideline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintGuide_begin="205dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_begin="365dp"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
                     android:id="@+id/ivWeight"

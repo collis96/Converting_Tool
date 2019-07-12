@@ -22,7 +22,7 @@
             android:icon="@drawable/baseline_schedule_black_48dp"
             android:title="Time" />
         <item
-            android:id="@+id/Currency"
+            android:id="@+id/currency"
             android:icon="@drawable/baseline_attach_money_black_48dp"
             android:title="Currency" />
         <item

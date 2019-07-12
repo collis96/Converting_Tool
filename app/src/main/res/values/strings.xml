@@ -12,6 +12,21 @@
     <string name="to">To</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_closed">Closed Navigation Drawer</string>
+    <string name="weight">Weight</string>
+    <string name="toolkit">Toolkit</string>
+    <string name="conversion">Conversion</string>
+    <string name="distance">Distance</string>
+    <string name="area">Area</string>
+    <string name="volume">Volume</string>
+    <string name="time">Time</string>
+    <string name="currency">Currency</string>
+    <string name="temperature">Temperature</string>
+    <string name="storage">Storage</string>
+    <string name="magnetism">Magnetism</string>
+    <string name="radiation">Radiation</string>
+    <string name="fluid">Fluid</string>
+    <string name="other">Other</string>
+    <string name="home">home</string>
 
     <string-array name="spMeasurement">
         <item>Imperial</item>
