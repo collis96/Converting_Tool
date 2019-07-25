@@ -27,6 +27,8 @@
     <string name="fluid">Fluid</string>
     <string name="other">Other</string>
     <string name="home">home</string>
+    <string name="connection_error">Connection error</string>
+    <string name="xml_error">Xml error</string>
 
     <string-array name="spMeasurement">
         <item>Imperial</item>

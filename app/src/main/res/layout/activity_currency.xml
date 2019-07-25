@@ -87,15 +87,43 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/tvBCurrency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="176dp"
                     android:text="TextView"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="TextView"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvBCurrency"
+                    app:layout_constraintStart_toEndOf="@+id/tvBCurrency" />
+
+                <TextView
+                    android:id="@+id/tvExRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:text="TextView"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvBCurrency"
+                    app:layout_constraintStart_toEndOf="@+id/tvTCurrency" />
+
+                <Button
+                    android:id="@+id/btnGo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Button"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTCurrency"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTCurrency"
+                    app:layout_constraintStart_toStartOf="@+id/tvTCurrency"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
