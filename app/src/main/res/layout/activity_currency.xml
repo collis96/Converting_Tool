@@ -86,45 +86,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tvBCurrency"
+                <Button
+                    android:id="@+id/btnCurrency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginTop="176dp"
-                    android:text="TextView"
+                    android:layout_marginTop="16dp"
+                    android:text="Convert"
+                    app:layout_constraintStart_toStartOf="@+id/tvExRate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvExRate" />
+
+                <Spinner
+                    android:id="@+id/spCurrencyTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/spCurrencyFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spCurrencyFrom" />
+
+                <Spinner
+                    android:id="@+id/spCurrencyFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvTCurrency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="TextView"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tvBCurrency"
-                    app:layout_constraintStart_toEndOf="@+id/tvBCurrency" />
 
                 <TextView
                     android:id="@+id/tvExRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="16dp"
                     android:text="TextView"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tvBCurrency"
-                    app:layout_constraintStart_toEndOf="@+id/tvTCurrency" />
+                    app:layout_constraintStart_toStartOf="@+id/etCurrencyInput"
+                    app:layout_constraintTop_toBottomOf="@+id/etCurrencyInput" />
 
-                <Button
-                    android:id="@+id/btnGo"
+                <EditText
+                    android:id="@+id/etCurrencyInput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Button"
-                    app:layout_constraintBottom_toTopOf="@+id/tvTCurrency"
-                    app:layout_constraintEnd_toEndOf="@+id/tvTCurrency"
-                    app:layout_constraintStart_toStartOf="@+id/tvTCurrency"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="@+id/spCurrencyTo"
+                    app:layout_constraintTop_toBottomOf="@+id/spCurrencyTo" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
