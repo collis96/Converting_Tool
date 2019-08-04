@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -39,7 +40,9 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
     private String baseCode;
     private String targetCurrency;
     private String targetCode;
+    private TextView tvInputSummary;
     private TextView tvexRate;
+    private double input;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -93,6 +96,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);
+        final EditText etInput = findViewById(R.id.etCurrencyInput);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -1202,12 +1206,14 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
         });
 
         tvexRate = findViewById(R.id.tvExRate);
+        tvInputSummary = findViewById(R.id.tvInputSummary);
 
         Button btnGo = findViewById(R.id.btnCurrency);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Starting AsyncTask");
+                input = Double.parseDouble(etInput.getText().toString());
                 DownloadData downloadData = new DownloadData();
                 downloadData.execute(URL);
                 Log.d(TAG, "onClick: Done.");
@@ -1238,8 +1244,17 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                 Log.d(TAG, "onPostExecute: Inside conversions for loop");
                 Log.d(TAG, "onPostExecute: target currency " + conv.getTargetCurrency());
                 if(targetCode.equals(conv.getTargetCurrency())){
+                    double output;
+                    String inputString;
+                    String outputString;
+                    output = conv.getExchangeRate() * input;
+                    output = Math.round(output * 100);
+                    output /= 100;
+                    inputString = input + " " + conv.getBaseCurrency() + " =";
+                    outputString = output + " " + conv.getTargetCurrency();
                     Log.d(TAG, "onPostExecute: target code = target currency " + targetCode);
-                    tvexRate.setText(Double.toString(conv.getExchangeRate()));
+                    tvInputSummary.setText(inputString);
+                    tvexRate.setText(outputString);
                 }
             }
         }

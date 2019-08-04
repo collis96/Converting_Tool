@@ -46,6 +46,7 @@
         <item>Feet</item>
         <item>Miles</item>
     </string-array>
+
     <string-array name="conversions">
         <item>US Dollar</item>
         <item>Euro</item>
