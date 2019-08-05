@@ -29,6 +29,8 @@
     <string name="home">home</string>
     <string name="connection_error">Connection error</string>
     <string name="xml_error">Xml error</string>
+    <string name="from">From</string>
+    <string name="convert">Convert</string>
 
     <string-array name="spMeasurement">
         <item>Imperial</item>
@@ -47,7 +49,7 @@
         <item>Miles</item>
     </string-array>
 
-    <string-array name="conversions">
+    <string-array name="currencies">
         <item>US Dollar</item>
         <item>Euro</item>
         <item>UK Pound Sterling</item>
@@ -199,6 +201,39 @@
         <item>West African CFA Franc</item>
         <item>Yemeni Rial</item>
         <item>Zambian Kwacha</item>
+    </string-array>
+
+    <string-array name="area">
+        <item>Square kilometre</item>
+        <item>Square metre</item>
+        <item>Square mile</item>
+        <item>Square yard</item>
+        <item>Square foot</item>
+        <item>Square inch</item>
+        <item>Hectare</item>
+        <item>Acre</item>
+    </string-array>
+
+    <string-array name="volume">
+        <item>US liquid gallon</item>
+        <item>US liquid quart</item>
+        <item>US liquid pint</item>
+        <item>US legal cup</item>
+        <item>US fluid ounce</item>
+        <item>US tablespoon</item>
+        <item>US teaspoon</item>
+        <item>Cubic metre</item>
+        <item>Litre</item>
+        <item>Millilitre</item>
+        <item>Imperial gallon</item>
+        <item>Imperial quart</item>
+        <item>Imperial pint</item>
+        <item>Imperial cup</item>
+        <item>Imperial fluid ounce</item>
+        <item>Imperial tablespoon</item>
+        <item>Imperial teaspoon</item>
+        <item>Cubic foot</item>
+        <item>Cubic inch</item>
     </string-array>
 
 </resources>

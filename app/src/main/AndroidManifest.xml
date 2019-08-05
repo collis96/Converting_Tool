@@ -50,7 +50,7 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityWeight">
+        <activity android:name=".ActivityMass">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
@@ -70,7 +70,7 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityFluid">
+        <activity android:name=".ActivityFuel">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>

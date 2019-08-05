@@ -13,7 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class ActivityWeight extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ActivityFuel extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
 
@@ -41,7 +41,8 @@ public class ActivityWeight extends AppCompatActivity implements NavigationView.
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
-            case R.id.weight:
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -52,8 +53,7 @@ public class ActivityWeight extends AppCompatActivity implements NavigationView.
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
@@ -65,7 +65,7 @@ public class ActivityWeight extends AppCompatActivity implements NavigationView.
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weight);
+        setContentView(R.layout.activity_fluid);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);

@@ -212,7 +212,7 @@
             android:ems="10"
             android:hint="@string/enter_value_here"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,6 @@
 package com.arcticumi.convert;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,8 +52,8 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
-            case R.id.weight:
-                startActivity(new Intent(this, ActivityWeight.class));
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -65,8 +64,8 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
@@ -97,7 +96,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
             case R.id.ivWeight:
-                startActivity(new Intent(this, ActivityWeight.class));
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.ivStorage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -109,7 +108,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
             case R.id.ivFluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.ivOther:
                 startActivity(new Intent(this, ActivityOther.class));

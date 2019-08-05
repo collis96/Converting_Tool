@@ -87,16 +87,86 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/tvVolumeFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/from"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvVolumeTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spVolumeTo"
+                    app:layout_constraintStart_toStartOf="@+id/spVolumeTo" />
+
+                <Spinner
+                    android:id="@+id/spVolumeFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvVolumeFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvVolumeFrom" />
+
+                <Spinner
+                    android:id="@+id/spVolumeTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spVolumeFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spVolumeFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spVolumeFrom" />
+
+                <EditText
+                    android:id="@+id/etVolumeInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spVolumeFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spVolumeFrom" />
+
+                <Button
+                    android:id="@+id/btnVolumeConvert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="@string/convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etVolumeInput"
+                    app:layout_constraintStart_toEndOf="@+id/etVolumeInput" />
+
+                <TextView
+                    android:id="@+id/tvVolumeInputSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/etVolumeInput"
+                    tools:text="tvVolumeInputSummary" />
+
+                <TextView
+                    android:id="@+id/tvVolumeOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvVolumeInputSummary"
+                    tools:text="tvVolumeOutput" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

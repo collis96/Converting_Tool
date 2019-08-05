@@ -52,8 +52,8 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
-            case R.id.weight:
-                startActivity(new Intent(this, ActivityWeight.class));
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -64,8 +64,8 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));

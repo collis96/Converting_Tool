@@ -40,8 +40,8 @@ public class ActivityTemp extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.temp:
                 break;
-            case R.id.weight:
-                startActivity(new Intent(this, ActivityWeight.class));
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -52,8 +52,8 @@ public class ActivityTemp extends AppCompatActivity implements NavigationView.On
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));

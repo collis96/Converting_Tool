@@ -1,10 +1,12 @@
 package com.arcticumi.convert;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,8 +70,8 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
-            case R.id.weight:
-                startActivity(new Intent(this, ActivityWeight.class));
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -79,8 +82,8 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
@@ -110,7 +113,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
         Spinner spCurrencyFrom = findViewById(R.id.spCurrencyFrom);
         Spinner spCurrencyTo = findViewById(R.id.spCurrencyTo);
 
-        ArrayAdapter<CharSequence> currencyAdapter = ArrayAdapter.createFromResource(this, R.array.conversions, R.layout.spinner_item);
+        ArrayAdapter<CharSequence> currencyAdapter = ArrayAdapter.createFromResource(this, R.array.currencies, R.layout.spinner_item);
         currencyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spCurrencyFrom.setAdapter(currencyAdapter);
@@ -1212,17 +1215,34 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: Starting AsyncTask");
-                input = Double.parseDouble(etInput.getText().toString());
-                DownloadData downloadData = new DownloadData();
-                downloadData.execute(URL);
-                Log.d(TAG, "onClick: Done.");
+                try {
+                    Log.d(TAG, "onClick: Starting AsyncTask");
+                    input = Double.parseDouble(etInput.getText().toString());
+                    DownloadData downloadData = new DownloadData();
+                    downloadData.execute(URL);
+                    Log.d(TAG, "onClick: Done.");
+                } catch (NumberFormatException e) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter a number to convert", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 200);
+                    toast.show();
+                }
             }
         });
     }
 
-    private class DownloadData extends AsyncTask<String, Void, String> {
+    private class DownloadData extends AsyncTask<String, String, String> {
         private static final String TAG = "DownloadData";
+        ProgressDialog progressDialog = new ProgressDialog(ActivityCurrency.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage("Loading...");
+            progressDialog.setIndeterminate(false);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(true);
+            progressDialog.show();
+        }
 
         @Override
         protected String doInBackground(String... urls) {
@@ -1257,6 +1277,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                     tvexRate.setText(outputString);
                 }
             }
+            progressDialog.dismiss();
         }
 
         private String downloadXML(String urlPath) {

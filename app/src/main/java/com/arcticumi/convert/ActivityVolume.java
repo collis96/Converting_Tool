@@ -3,6 +3,10 @@ package com.arcticumi.convert;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,8 +44,8 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
                 break;
-            case R.id.weight:
-                startActivity(new Intent(this, ActivityWeight.class));
+            case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityStorage.class));
@@ -52,8 +56,8 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
             case R.id.radiation:
                 startActivity(new Intent(this, ActivityRadiation.class));
                 break;
-            case R.id.fluid:
-                startActivity(new Intent(this, ActivityFluid.class));
+            case R.id.fuel:
+                startActivity(new Intent(this, ActivityFuel.class));
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
@@ -78,6 +82,39 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
                 R.string.navigation_drawer_open, R.string.navigation_drawer_closed);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        Spinner spVolumeFrom = findViewById(R.id.spVolumeFrom);
+        Spinner spVolumeTo = findViewById(R.id.spVolumeTo);
+
+        ArrayAdapter<CharSequence> volumeAdapter = ArrayAdapter.createFromResource(this, R.array.volume, R.layout.spinner_item);
+        volumeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spVolumeFrom.setAdapter(volumeAdapter);
+        spVolumeTo.setAdapter(volumeAdapter);
+
+        spVolumeFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //todo
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spVolumeTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //todo
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 }

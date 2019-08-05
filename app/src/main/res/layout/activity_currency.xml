@@ -100,7 +100,9 @@
                     android:layout_width="172dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/spCurrencyFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spCurrencyFrom"
                     app:layout_constraintTop_toTopOf="@+id/spCurrencyFrom" />
 
@@ -108,7 +110,7 @@
                     android:id="@+id/spCurrencyFrom"
                     android:layout_width="172dp"
                     android:layout_height="43dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="@+id/tvCurrencyFrom"
                     app:layout_constraintTop_toBottomOf="@+id/tvCurrencyFrom" />
 
@@ -131,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     app:layout_constraintStart_toStartOf="@+id/spCurrencyFrom"
                     app:layout_constraintTop_toBottomOf="@+id/spCurrencyTo" />
 
@@ -149,7 +151,7 @@
                     android:id="@+id/tvCurrencyTo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="16dp"
                     android:text="To"
                     app:layout_constraintBottom_toTopOf="@+id/spCurrencyTo"
                     app:layout_constraintStart_toStartOf="@+id/spCurrencyTo" />
