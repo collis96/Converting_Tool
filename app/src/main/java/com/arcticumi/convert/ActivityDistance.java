@@ -24,7 +24,7 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
 
     private double input;
     private double output;
-    private String measurementFrom, measurementTo, unit, outputUnit, outputUnitSymbol;
+    private String inputUnit, outputUnit;
     private static final String TAG = "ActivityDistance";
     private DrawerLayout drawer;
 
@@ -93,48 +93,23 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
         toggle.syncState();
 
         final Conversions convert = new Conversions();
-        final TextView tvOutput = findViewById(R.id.tvOutput);
-        final TextView tvUnitDisplay = findViewById(R.id.tvUnitDisplay);
-        final EditText etInput = findViewById(R.id.etInput);
-        Button bt = findViewById(R.id.button);
-        final Spinner spUnitFrom = findViewById(R.id.spUnitFrom);
-        final Spinner spUnitTo = findViewById(R.id.spUnitTo);
-        Spinner spMeasurementFrom = findViewById(R.id.spMeasurementFrom);
-        Spinner spMeasurementTo = findViewById(R.id.spMeasurementTo);
+        final TextView tvOutput = findViewById(R.id.tvDistanceOutput);
+        final TextView tvInputSummary = findViewById(R.id.tvDistanceInputSummary);
+        final EditText etInput = findViewById(R.id.etDistanceInput);
+        Button btnConvert = findViewById(R.id.btnDistanceConvert);
+        final Spinner spDistanceFrom = findViewById(R.id.spDistanceFrom);
+        final Spinner spDistanceTo = findViewById(R.id.spDistanceTo);
 
-        ArrayAdapter<CharSequence> adapterMeasurement = ArrayAdapter.createFromResource(this, R.array.spMeasurement, R.layout.spinner_item);
-        adapterMeasurement.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMeasurementFrom.setAdapter(adapterMeasurement);
-        spMeasurementTo.setAdapter(adapterMeasurement);
+        ArrayAdapter<CharSequence> adapterDistance = ArrayAdapter.createFromResource(this, R.array.distance, R.layout.spinner_item);
+        adapterDistance.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spDistanceFrom.setAdapter(adapterDistance);
+        spDistanceTo.setAdapter(adapterDistance);
 
-        final ArrayAdapter<CharSequence> adapterUnitsMetric = ArrayAdapter.createFromResource(this, R.array.metricUnitsDistance, R.layout.spinner_item);
-        adapterUnitsMetric.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        final ArrayAdapter<CharSequence> adapterUnitsImperial = ArrayAdapter.createFromResource(this, R.array.imperialUnitsDistance, R.layout.spinner_item);
-        adapterUnitsImperial.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spMeasurementFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spDistanceFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                measurementFrom = parent.getItemAtPosition(position).toString();
-                //set unit arrayadapter
-                try {
-                    if (measurementFrom.equals("Metric") && measurementTo.equals("Imperial")) {
-                        spUnitFrom.setAdapter(adapterUnitsMetric);
-                        spUnitTo.setAdapter(adapterUnitsImperial);
-                    } else if (measurementFrom.equals("Imperial") && measurementTo.equals("Metric")) {
-                        spUnitFrom.setAdapter(adapterUnitsImperial);
-                        spUnitTo.setAdapter(adapterUnitsMetric);
-                    } else if (measurementFrom.equals("Imperial") && measurementTo.equals("Imperial")) {
-                        spUnitFrom.setAdapter(adapterUnitsImperial);
-                        spUnitTo.setAdapter(adapterUnitsImperial);
-                    } else {
-                        spUnitFrom.setAdapter(adapterUnitsMetric);
-                        spUnitTo.setAdapter(adapterUnitsMetric);
-                    }
-                } catch (NullPointerException ignored) {
-
-                }
+                inputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -143,28 +118,10 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
             }
         });
 
-        spMeasurementTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spDistanceTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                measurementTo = parent.getItemAtPosition(position).toString();
-                //set unit arrayadapter
-                try {
-                    if (measurementFrom.equals("Metric") && measurementTo.equals("Imperial")) {
-                        spUnitFrom.setAdapter(adapterUnitsMetric);
-                        spUnitTo.setAdapter(adapterUnitsImperial);
-                    } else if (measurementFrom.equals("Imperial") && measurementTo.equals("Metric")) {
-                        spUnitFrom.setAdapter(adapterUnitsImperial);
-                        spUnitTo.setAdapter(adapterUnitsMetric);
-                    } else if (measurementFrom.equals("Imperial") && measurementTo.equals("Imperial")) {
-                        spUnitFrom.setAdapter(adapterUnitsImperial);
-                        spUnitTo.setAdapter(adapterUnitsImperial);
-                    } else {
-                        spUnitFrom.setAdapter(adapterUnitsMetric);
-                        spUnitTo.setAdapter(adapterUnitsMetric);
-                    }
-                } catch (NullPointerException ignored) {
-
-                }
+                outputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -173,86 +130,47 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
             }
         });
 
-        spUnitFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                etInput.setText(String.valueOf(input));
-                unit = parent.getItemAtPosition(position).toString();
-                switch (unit) {
-                    case "Centimetres":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                    case "Metres":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                    case "Kilometres":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                    case "Inches":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                    case "Feet":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                    case "Miles":
-                        tvUnitDisplay.setText(unit);
-                        break;
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        spUnitTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                outputUnitSymbol = parent.getItemAtPosition(position).toString();
-//                etInput.setText(String.valueOf(input));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        bt.setOnClickListener(new View.OnClickListener() {
+        btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: Input value before conversion = " + input);
+                Log.d(TAG, "onClick: Output value before conversion = " + output);
+                Log.d(TAG, "onClick: Output Unit Symbol = " + outputUnit);
                 try {
                     input = Double.valueOf(String.valueOf(etInput.getText()));
-                    switch (unit) {
+                    switch (inputUnit) {
                         case "Inches":
-                            convert.inchesToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                            convert.inchesToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
                         case "Feet":
-                            convert.feetToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                            convert.feetToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
                         case "Miles":
-                            convert.milesToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                            convert.milesToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
                         case "Centimetres":
-                            convert.centiToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                            convert.centiToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
                         case "Metres":
-                            convert.metresToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                            convert.metresToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
-                        case "Kilometre":
-                            convert.kilometreToOther(input, outputUnitSymbol);
-                            output = convert.getOutput();
+                        case "Kilometres":
+                            convert.kilometreToOther(input, outputUnit);
+                            output = convert.getDoubleOut();
                             break;
                     } //todo put in another function
-                    Format fm = new Format(unit, outputUnitSymbol, output);
+                    Log.d(TAG, "onClick: Input value after conversion = " + input);
+                    Log.d(TAG, "onClick: Output value after conversion = " + output);
+                    Format fm = new Format(inputUnit, outputUnit, output);
                     outputUnit = fm.getOutput();
+                    String inputSummary;
+                    inputSummary = input + " " + inputUnit + " =";
+                    tvInputSummary.setText(inputSummary);
                     tvOutput.setText(outputUnit);
                 } catch (NumberFormatException ignored) {
                 } catch (NullPointerException e) {

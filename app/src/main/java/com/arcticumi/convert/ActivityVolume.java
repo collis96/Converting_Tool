@@ -2,11 +2,15 @@ package com.arcticumi.convert;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +24,10 @@ import com.google.android.material.navigation.NavigationView;
 public class ActivityVolume extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private String inputUnit, outputUnit;
+    private double input;
+    private String output;
+    private static final String TAG = "ActivityVolume";
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,6 +91,11 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        final Conversions convert = new Conversions();
+        Button btnConvert = findViewById(R.id.btnVolumeConvert);
+        final EditText etInput = findViewById(R.id.etVolumeInput);
+        final TextView tvInputSummary = findViewById(R.id.tvVolumeInputSummary);
+        final TextView tvOutput = findViewById(R.id.tvVolumeOutput);
         Spinner spVolumeFrom = findViewById(R.id.spVolumeFrom);
         Spinner spVolumeTo = findViewById(R.id.spVolumeTo);
 
@@ -94,7 +107,7 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
         spVolumeFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //todo
+                inputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -106,12 +119,113 @@ public class ActivityVolume extends AppCompatActivity implements NavigationView.
         spVolumeTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //todo
+                outputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        btnConvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    input = Double.valueOf(String.valueOf(etInput.getText()));
+                    switch (inputUnit) {
+                        case "Cubic metre":
+                            convert.cubicMetreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Cubic foot":
+                            convert.cubicFootToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Cubic inch":
+                            convert.cubicInchToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Litre":
+                            convert.litreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Millilitre":
+                            convert.millilitreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US liquid gallon":
+                            convert.usLiquidGallonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US liquid quart":
+                            convert.usLiquidQuartToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US liquid pint":
+                            convert.usLiquidPintToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US legal cup":
+                            convert.usLegalCupToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US fluid ounce":
+                            convert.usFluidOunceToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US tablespoon":
+                            convert.usTablespoonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "US teaspoon":
+                            convert.usTeaspoonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial gallon":
+                            convert.imperialGallonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial quart":
+                            convert.imperialQuartToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial pint":
+                            convert.imperialPintToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial cup":
+                            convert.imperialCupToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial fluid ounce":
+                            convert.imperialFluidOunceToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial tablespoon":
+                            convert.imperialTablespoonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Imperial teaspoon":
+                            convert.imperialTeaspoonToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                    } //todo put in another function
+                    Log.d(TAG, "onClick: Input value after conversion = " + input);
+                    Log.d(TAG, "onClick: Output value after conversion = " + output);
+                    String inputSummary;
+                    inputSummary = input + " " + inputUnit + "s =";
+                    double temp = Math.round(Double.parseDouble(output) * 100);
+                    temp = temp / 100;
+                    output = String.valueOf(temp);
+                    String outputString;
+                    outputString = output + " " + outputUnit + "s";
+                    tvInputSummary.setText(inputSummary);
+                    tvOutput.setText(outputString);
+                } catch (NumberFormatException ignored) {
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "afterTextChanged: " + e);
+                }
             }
         });
 

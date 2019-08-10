@@ -71,218 +71,105 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
-        <TextView
-            android:id="@+id/tvTo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/to"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintBottom_toBottomOf="@+id/spUnitFrom"
-            app:layout_constraintEnd_toStartOf="@+id/spUnitTo"
-            app:layout_constraintStart_toEndOf="@+id/spUnitFrom"
-            app:layout_constraintTop_toTopOf="@+id/spUnitFrom" />
-
-        <Spinner
-            android:id="@+id/spUnitFrom"
-            android:layout_width="150dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvUnit"
-            app:layout_constraintTop_toBottomOf="@+id/tvUnit"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Spinner
-            android:id="@+id/spUnitTo"
-            android:layout_width="150dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTo2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/spUnitFrom"
-            app:layout_constraintTop_toTopOf="@+id/tvTo2" />
-
-        <TextView
-            android:id="@+id/tvMeasurement"
-            android:layout_width="185dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/measurement_system"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/csTop"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0">
 
-        <Spinner
-            android:id="@+id/spMeasurementFrom"
-            android:layout_width="150dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:entries="@array/spMeasurement"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvMeasurement"
-            app:layout_constraintTop_toBottomOf="@+id/tvMeasurement"
-            app:layout_constraintVertical_bias="0.0" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/spMeasurementTo"
-            android:layout_width="150dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:entries="@array/spMeasurement"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/spMeasurementFrom"
-            app:layout_constraintTop_toTopOf="@+id/tvTo" />
+                <TextView
+                    android:id="@+id/tvDistanceFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/from"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvUnit"
-            android:layout_width="185dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="352dp"
-            android:text="@string/unit"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/spMeasurementFrom"
-            app:layout_constraintTop_toBottomOf="@+id/spMeasurementFrom"
-            app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvDistanceTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/to"
+                    app:layout_constraintBottom_toTopOf="@+id/spDistanceTo"
+                    app:layout_constraintStart_toStartOf="@+id/spDistanceTo" />
 
-        <TextView
-            android:id="@+id/tvInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/input"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/spUnitFrom"
-            app:layout_constraintTop_toBottomOf="@+id/spUnitFrom"
-            app:layout_constraintVertical_bias="0.0" />
+                <Spinner
+                    android:id="@+id/spDistanceFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDistanceFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDistanceFrom" />
 
-        <TextView
-            android:id="@+id/tvUnitDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="60dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etInput"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/etInput"
-            tools:text="@string/unit" />
+                <Spinner
+                    android:id="@+id/spDistanceTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spDistanceFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spDistanceFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spDistanceFrom" />
 
-        <EditText
-            android:id="@+id/etInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="@string/enter_value_here"
-            android:importantForAutofill="no"
-            android:inputType="numberDecimal"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvInput"
-            app:layout_constraintTop_toBottomOf="@+id/tvInput"
-            app:layout_constraintVertical_bias="0.0" />
+                <EditText
+                    android:id="@+id/etDistanceInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spDistanceFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spDistanceFrom" />
 
-        <TextView
-            android:id="@+id/tvOuputText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/output"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etInput"
-            app:layout_constraintTop_toBottomOf="@+id/etInput"
-            app:layout_constraintVertical_bias="0.0" />
+                <Button
+                    android:id="@+id/btnDistanceConvert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etDistanceInput"
+                    app:layout_constraintStart_toEndOf="@+id/etDistanceInput" />
 
-        <TextView
-            android:id="@+id/tvOutput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvOuputText"
-            app:layout_constraintTop_toBottomOf="@+id/tvOuputText"
-            app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvDistanceInputSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDistanceInput"
+                    tools:text="input summary" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvOutput"
-            app:layout_constraintTop_toBottomOf="@+id/tvOutput"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/tvTo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/to"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintBottom_toBottomOf="@+id/spMeasurementFrom"
-            app:layout_constraintEnd_toStartOf="@+id/spMeasurementTo"
-            app:layout_constraintStart_toEndOf="@+id/spMeasurementFrom"
-            app:layout_constraintTop_toTopOf="@+id/spMeasurementFrom" />
+                <TextView
+                    android:id="@+id/tvDistanceOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDistanceInputSummary"
+                    tools:text="@string/output" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

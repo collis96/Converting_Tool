@@ -32,18 +32,10 @@
     <string name="from">From</string>
     <string name="convert">Convert</string>
 
-    <string-array name="spMeasurement">
-        <item>Imperial</item>
-        <item>Metric</item>
-    </string-array>
-
-    <string-array name="metricUnitsDistance">
+    <string-array name="distance">
         <item>Centimetres</item>
         <item>Metres</item>
         <item>Kilometres</item>
-    </string-array>
-
-    <string-array name="imperialUnitsDistance">
         <item>Inches</item>
         <item>Feet</item>
         <item>Miles</item>
@@ -215,6 +207,11 @@
     </string-array>
 
     <string-array name="volume">
+        <item>Cubic metre</item>
+        <item>Cubic foot</item>
+        <item>Cubic inch</item>
+        <item>Litre</item>
+        <item>Millilitre</item>
         <item>US liquid gallon</item>
         <item>US liquid quart</item>
         <item>US liquid pint</item>
@@ -222,9 +219,6 @@
         <item>US fluid ounce</item>
         <item>US tablespoon</item>
         <item>US teaspoon</item>
-        <item>Cubic metre</item>
-        <item>Litre</item>
-        <item>Millilitre</item>
         <item>Imperial gallon</item>
         <item>Imperial quart</item>
         <item>Imperial pint</item>
@@ -232,8 +226,43 @@
         <item>Imperial fluid ounce</item>
         <item>Imperial tablespoon</item>
         <item>Imperial teaspoon</item>
-        <item>Cubic foot</item>
-        <item>Cubic inch</item>
+    </string-array>
+
+    <string-array name="temperature">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+
+    <string-array name="Time">
+        <item>Nanosecond</item>
+        <item>Microsecond</item>
+        <item>Millisecond</item>
+        <item>Second</item>
+        <item>Minute</item>
+        <item>Hour</item>
+        <item>Day</item>
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+        <item>Decade</item>
+        <item>Century</item>
+    </string-array>
+
+    <string-array name="Speed">
+        <item>Miles per hour</item>
+        <item>Kilometre per hour</item>
+        <item>Metre per second</item>
+        <item>Foot per second</item>
+        <item>Knot</item>
+    </string-array>
+
+    <string-array name="Pressure">
+        <item>Atmosphere</item>
+        <item>Bar</item>
+        <item>Pascal</item>
+        <item>Pound-force per square inch</item>
+        <item>Torr</item>
     </string-array>
 
 </resources>

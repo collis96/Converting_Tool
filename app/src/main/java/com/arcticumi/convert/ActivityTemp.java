@@ -2,7 +2,15 @@ package com.arcticumi.convert;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +24,10 @@ import com.google.android.material.navigation.NavigationView;
 public class ActivityTemp extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private String inputUnit, outputUnit;
+    private double input;
+    private String output;
+    private static final String TAG = "ActivityTemp";
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -78,6 +90,85 @@ public class ActivityTemp extends AppCompatActivity implements NavigationView.On
                 R.string.navigation_drawer_open, R.string.navigation_drawer_closed);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        final Conversions convert = new Conversions();
+        final TextView tvOutput = findViewById(R.id.tvTemperatureOutput);
+        final TextView tvInputSummary = findViewById(R.id.tvTemperatureInputSummary);
+        final EditText etInput = findViewById(R.id.etTemperatureInput);
+        Button btnConvert = findViewById(R.id.btnTemperatureConvert);
+        final Spinner spTemperatureFrom = findViewById(R.id.spTemperatureFrom);
+        final Spinner spTemperatureTo = findViewById(R.id.spTemperatureTo);
+
+        ArrayAdapter<CharSequence> adapterTemperature = ArrayAdapter.createFromResource(this, R.array.temperature, R.layout.spinner_item);
+        adapterTemperature.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spTemperatureFrom.setAdapter(adapterTemperature);
+        spTemperatureTo.setAdapter(adapterTemperature);
+
+
+        spTemperatureFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                inputUnit = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spTemperatureTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                outputUnit = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btnConvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Input value before conversion = " + input);
+                Log.d(TAG, "onClick: Output value before conversion = " + output);
+                Log.d(TAG, "onClick: Output Unit Symbol = " + outputUnit);
+                try {
+                    input = Double.valueOf(String.valueOf(etInput.getText()));
+                    switch (inputUnit) {
+                        case "Celsius":
+                            convert.celsiusToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Fahrenheit":
+                            convert.fahrenheitToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Kelvin":
+                            convert.kelvinToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                    }
+                    Log.d(TAG, "onClick: Input value after conversion = " + input);
+                    Log.d(TAG, "onClick: Output value after conversion = " + output);
+                    String inputSummary;
+                    inputSummary = input + " " + inputUnit + "s =";
+                    double temp = Math.round(Double.parseDouble(output) * 100);
+                    temp = temp / 100;
+                    output = String.valueOf(temp);
+                    String outputString;
+                    outputString = output + " " + outputUnit + "s";
+                    tvInputSummary.setText(inputSummary);
+                    tvOutput.setText(outputString);
+                } catch (NumberFormatException ignored) {
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "afterTextChanged: " + e);
+                }
+            }
+        });
+
     }
 
 }

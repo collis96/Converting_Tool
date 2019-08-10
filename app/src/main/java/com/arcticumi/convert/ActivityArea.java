@@ -2,11 +2,15 @@ package com.arcticumi.convert;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +23,12 @@ import com.google.android.material.navigation.NavigationView;
 
 public class ActivityArea extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = "ActivityArea";
+
     private DrawerLayout drawer;
+    private String inputUnit, outputUnit;
+    private double input;
+    private String output;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,6 +92,11 @@ public class ActivityArea extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        final Conversions convert = new Conversions();
+        Button btnConvert = findViewById(R.id.btnAreaConvert);
+        final EditText etInput = findViewById(R.id.etAreaInput);
+        final TextView tvInputSummary = findViewById(R.id.tvAreaInputSummary);
+        final TextView tvOutput = findViewById(R.id.tvAreaOutput);
         Spinner spAreaFrom = findViewById(R.id.spAreaFrom);
         Spinner spAreaTo = findViewById(R.id.spAreaTo);
 
@@ -94,7 +108,7 @@ public class ActivityArea extends AppCompatActivity implements NavigationView.On
         spAreaFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //todo
+                inputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -106,12 +120,69 @@ public class ActivityArea extends AppCompatActivity implements NavigationView.On
         spAreaTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //todo
+                outputUnit = parent.getItemAtPosition(position).toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        btnConvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    input = Double.valueOf(String.valueOf(etInput.getText()));
+                    switch (inputUnit) {
+                        case "Square kilometre":
+                            convert.sqKilometreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Square metre":
+                            convert.sqMetreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Square mile":
+                            convert.sqMileToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Square yard":
+                            convert.sqYardToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Square foot":
+                            convert.sqFootToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Square inch":
+                            convert.sqInchToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Hectare":
+                            convert.hectareToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Acre":
+                            convert.acreToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                    } //todo put in another function
+                    Log.d(TAG, "onClick: Input value after conversion = " + input);
+                    Log.d(TAG, "onClick: Output value after conversion = " + output);
+                    String inputSummary;
+                    inputSummary = input + " " + inputUnit + "s =";
+                    double temp = Math.round(Double.parseDouble(output) * 100);
+                    temp = temp / 100;
+                    output = String.valueOf(temp);
+                    String outputString;
+                    outputString = output + " " + outputUnit + "s";
+                    tvInputSummary.setText(inputSummary);
+                    tvOutput.setText(outputString);
+                } catch (NumberFormatException ignored) {
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "afterTextChanged: " + e);
+                }
             }
         });
 

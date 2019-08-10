@@ -87,16 +87,86 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/tvTemperatureFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/from"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTemperatureTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/to"
+                    app:layout_constraintBottom_toTopOf="@+id/spTemperatureTo"
+                    app:layout_constraintStart_toStartOf="@+id/spTemperatureTo" />
+
+                <Spinner
+                    android:id="@+id/spTemperatureFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvTemperatureFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTemperatureFrom" />
+
+                <Spinner
+                    android:id="@+id/spTemperatureTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spTemperatureFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spTemperatureFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spTemperatureFrom" />
+
+                <EditText
+                    android:id="@+id/etTemperatureInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal|numberSigned"
+                    app:layout_constraintStart_toStartOf="@+id/spTemperatureFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spTemperatureFrom" />
+
+                <Button
+                    android:id="@+id/btnTemperatureConvert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="@string/convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etTemperatureInput"
+                    app:layout_constraintStart_toEndOf="@+id/etTemperatureInput" />
+
+                <TextView
+                    android:id="@+id/tvTemperatureInputSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/etTemperatureInput"
+                    tools:text="input summary" />
+
+                <TextView
+                    android:id="@+id/tvTemperatureOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTemperatureInputSummary"
+                    tools:text="@string/output" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
