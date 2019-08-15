@@ -21,13 +21,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class ActivityMass extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ActivityEnergy extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "ActivityMass";
+    private static final String TAG = "ActivityEnergy";
     private DrawerLayout drawer;
     private String inputUnit, outputUnit;
     private double input;
     private String output;
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -61,6 +62,8 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityDigitalStorage.class));
@@ -75,8 +78,6 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.frequency:
-                startActivity(new Intent(this, ActivityFrequency.class));
-                finish();
                 break;
             case R.id.datatransfer:
                 startActivity(new Intent(this, ActivityDataTranserRate.class));
@@ -105,7 +106,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mass);
+        setContentView(R.layout.activity_energy);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);
@@ -120,19 +121,19 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         final Conversions convert = new Conversions();
-        Button btnConvert = findViewById(R.id.btnMass);
-        final EditText etInput = findViewById(R.id.etMassInput);
-        final TextView tvInputSummary = findViewById(R.id.tvMassInput);
-        final TextView tvOutput = findViewById(R.id.tvMassOutput);
-        Spinner spMassFrom = findViewById(R.id.spMassFrom);
-        Spinner spMassTo = findViewById(R.id.spMassTo);
+        Button btnConvert = findViewById(R.id.btnEnergy);
+        final EditText etInput = findViewById(R.id.etEnergyInput);
+        final TextView tvInputSummary = findViewById(R.id.tvEnergyInput);
+        final TextView tvOutput = findViewById(R.id.tvEnergyOutput);
+        Spinner spEnergyFrom = findViewById(R.id.spEnergyFrom);
+        Spinner spEnergyTo = findViewById(R.id.spEnergyTo);
 
-        ArrayAdapter<CharSequence> massAdapter = ArrayAdapter.createFromResource(this, R.array.mass, R.layout.spinner_item);
-        massAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMassFrom.setAdapter(massAdapter);
-        spMassTo.setAdapter(massAdapter);
+        ArrayAdapter<CharSequence> energyAdapter = ArrayAdapter.createFromResource(this, R.array.energy, R.layout.spinner_item);
+        energyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spEnergyFrom.setAdapter(energyAdapter);
+        spEnergyTo.setAdapter(energyAdapter);
 
-        spMassFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spEnergyFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 inputUnit = parent.getItemAtPosition(position).toString();
@@ -144,7 +145,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        spMassTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spEnergyTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 outputUnit = parent.getItemAtPosition(position).toString();
@@ -162,40 +163,44 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 try {
                     input = Double.valueOf(String.valueOf(etInput.getText()));
                     switch (inputUnit) {
-                        case "Microgram":
-                            convert.microgramToOther(input, outputUnit);
+                        case "Joule":
+                            convert.jouleToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Milligram":
-                            convert.milligramToOther(input, outputUnit);
+                        case "Kilojoule":
+                            convert.kilojouleToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Gram":
-                            convert.gramToOther(input, outputUnit);
+                        case "Gram calorie":
+                            convert.gramCalorieToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Kilogram":
-                            convert.kilogramToOther(input, outputUnit);
+                        case "Kilocalorie":
+                            convert.kilocalorieToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Imperial ton":
-                            convert.impTonToOther(input, outputUnit);
+                        case "Watt hour":
+                            convert.wattHourToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "US ton":
-                            convert.usTonToOther(input, outputUnit);
+                        case "Kilowatt hour":
+                            convert.kilowattHourToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Stone":
-                            convert.stoneToOther(input, outputUnit);
+                        case "Electronvolt":
+                            convert.electronvoltToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Pound":
-                            convert.poundToOther(input, outputUnit);
+                        case "British thermal unit":
+                            convert.britishThermalUnitToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Ounce":
-                            convert.ounceToOther(input, outputUnit);
+                        case "US therm":
+                            convert.usThermToOther(input, outputUnit);
+                            output = convert.getStrOutput();
+                            break;
+                        case "Foot-pound":
+                            convert.footPoundToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
                     } //todo put in another function
@@ -216,6 +221,8 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+
+
     }
 
 }

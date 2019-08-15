@@ -43,8 +43,8 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
     private String baseCode;
     private String targetCurrency;
     private String targetCode;
-    private TextView tvInputSummary;
-    private TextView tvexRate;
+    private TextView tvCurrencyInput;
+    private TextView tvCurrencyOutput;
     private double input;
 
     @Override
@@ -52,41 +52,69 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
         switch (item.getItemId()) {
             case R.id.home:
                 startActivity(new Intent(this, ActivityMain.class));
+                finish();
                 break;
             case R.id.distance:
                 startActivity(new Intent(this, ActivityDistance.class));
+                finish();
                 break;
             case R.id.area:
                 startActivity(new Intent(this, ActivityArea.class));
+                finish();
                 break;
             case R.id.volume:
                 startActivity(new Intent(this, ActivityVolume.class));
+                finish();
                 break;
             case R.id.time:
                 startActivity(new Intent(this, ActivityTime.class));
+                finish();
                 break;
             case R.id.currency:
                 break;
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
+                finish();
                 break;
             case R.id.mass:
                 startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
-                startActivity(new Intent(this, ActivityStorage.class));
+                startActivity(new Intent(this, ActivityDigitalStorage.class));
+                finish();
                 break;
-            case R.id.magnetism:
-                startActivity(new Intent(this, ActivityMagnetism.class));
-                break;
-            case R.id.radiation:
-                startActivity(new Intent(this, ActivityRadiation.class));
+            case R.id.speed:
+                startActivity(new Intent(this, ActivitySpeed.class));
+                finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuel.class));
+                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                finish();
+                break;
+            case R.id.frequency:
+                startActivity(new Intent(this, ActivityFrequency.class));
+                finish();
+                break;
+            case R.id.datatransfer:
+                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                finish();
+                break;
+            case R.id.energy:
+                startActivity(new Intent(this, ActivityEnergy.class));
+                finish();
+                break;
+            case R.id.planeangle:
+                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                finish();
+                break;
+            case R.id.pressure:
+                startActivity(new Intent(this, ActivityPressure.class));
+                finish();
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
+                finish();
                 break;
         }
         return true;
@@ -1208,8 +1236,8 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             }
         });
 
-        tvexRate = findViewById(R.id.tvExRate);
-        tvInputSummary = findViewById(R.id.tvInputSummary);
+        tvCurrencyOutput = findViewById(R.id.tvCurrencyOutput);
+        tvCurrencyInput = findViewById(R.id.tvCurrencyInput);
 
         Button btnGo = findViewById(R.id.btnCurrency);
         btnGo.setOnClickListener(new View.OnClickListener() {
@@ -1273,8 +1301,8 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                     inputString = input + " " + conv.getBaseCurrency() + " =";
                     outputString = output + " " + conv.getTargetCurrency();
                     Log.d(TAG, "onPostExecute: target code = target currency " + targetCode);
-                    tvInputSummary.setText(inputString);
-                    tvexRate.setText(outputString);
+                    tvCurrencyInput.setText(inputString);
+                    tvCurrencyOutput.setText(outputString);
                 }
             }
             progressDialog.dismiss();

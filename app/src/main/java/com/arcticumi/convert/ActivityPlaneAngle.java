@@ -21,9 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class ActivityMass extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ActivityPlaneAngle extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "ActivityMass";
+    private static final String TAG = "ActivityPlaneAngle";
     private DrawerLayout drawer;
     private String inputUnit, outputUnit;
     private double input;
@@ -61,6 +61,8 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityDigitalStorage.class));
@@ -75,8 +77,6 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.frequency:
-                startActivity(new Intent(this, ActivityFrequency.class));
-                finish();
                 break;
             case R.id.datatransfer:
                 startActivity(new Intent(this, ActivityDataTranserRate.class));
@@ -105,7 +105,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mass);
+        setContentView(R.layout.activity_plane_angle);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);
@@ -120,19 +120,19 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         final Conversions convert = new Conversions();
-        Button btnConvert = findViewById(R.id.btnMass);
-        final EditText etInput = findViewById(R.id.etMassInput);
-        final TextView tvInputSummary = findViewById(R.id.tvMassInput);
-        final TextView tvOutput = findViewById(R.id.tvMassOutput);
-        Spinner spMassFrom = findViewById(R.id.spMassFrom);
-        Spinner spMassTo = findViewById(R.id.spMassTo);
+        Button btnConvert = findViewById(R.id.btnPlaneAngle);
+        final EditText etInput = findViewById(R.id.etPlaneAngleInput);
+        final TextView tvInputSummary = findViewById(R.id.tvPlaneAngleInput);
+        final TextView tvOutput = findViewById(R.id.tvPlaneAngleOutput);
+        Spinner spPlaneAngleFrom = findViewById(R.id.spPlaneAngleFrom);
+        Spinner spPlaneAngleTo = findViewById(R.id.spPlaneAngleTo);
 
-        ArrayAdapter<CharSequence> massAdapter = ArrayAdapter.createFromResource(this, R.array.mass, R.layout.spinner_item);
-        massAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMassFrom.setAdapter(massAdapter);
-        spMassTo.setAdapter(massAdapter);
+        ArrayAdapter<CharSequence> planeAngleAdapter = ArrayAdapter.createFromResource(this, R.array.plane_angle, R.layout.spinner_item);
+        planeAngleAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spPlaneAngleFrom.setAdapter(planeAngleAdapter);
+        spPlaneAngleTo.setAdapter(planeAngleAdapter);
 
-        spMassFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spPlaneAngleFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 inputUnit = parent.getItemAtPosition(position).toString();
@@ -144,7 +144,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        spMassTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spPlaneAngleTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 outputUnit = parent.getItemAtPosition(position).toString();
@@ -162,40 +162,28 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 try {
                     input = Double.valueOf(String.valueOf(etInput.getText()));
                     switch (inputUnit) {
-                        case "Microgram":
-                            convert.microgramToOther(input, outputUnit);
+                        case "Degree":
+                            convert.degreeToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Milligram":
-                            convert.milligramToOther(input, outputUnit);
+                        case "Radian":
+                            convert.radianToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Gram":
-                            convert.gramToOther(input, outputUnit);
+                        case "Milliradian":
+                            convert.milliradianToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Kilogram":
-                            convert.kilogramToOther(input, outputUnit);
+                        case "Gradian":
+                            convert.gradianToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Imperial ton":
-                            convert.impTonToOther(input, outputUnit);
+                        case "Minute of arc":
+                            convert.minuteOfArcToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "US ton":
-                            convert.usTonToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Stone":
-                            convert.stoneToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Pound":
-                            convert.poundToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Ounce":
-                            convert.ounceToOther(input, outputUnit);
+                        case "Second of arc":
+                            convert.secondOfArcToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
                     } //todo put in another function
@@ -217,5 +205,6 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
 
 }

@@ -2104,4 +2104,217 @@ public class Conversions {
         }
     }
 
+    public void secondToOther(double input, String outUnit) {
+    }
+
+    public void minuteToOther(double input, String outUnit) {
+    }
+
+    public void hourToOther(double input, String outUnit) {
+    }
+
+    public void dayToOther(double input, String outUnit) {
+    }
+
+    public void weekToOther(double input, String outUnit) {
+    }
+
+    public void monthToOther(double input, String outUnit) {
+    }
+
+    public void yearToOther(double input, String outUnit) {
+    }
+
+    public void jouleToOther(double input, String outUnit) {
+    }
+
+    public void kilojouleToOther(double input, String outUnit) {
+    }
+
+    public void gramCalorieToOther(double input, String outUnit) {
+    }
+
+    public void kilocalorieToOther(double input, String outUnit) {
+    }
+
+    public void wattHourToOther(double input, String outUnit) {
+    }
+
+    public void kilowattHourToOther(double input, String outUnit) {
+    }
+
+    public void electronvoltToOther(double input, String outUnit) {
+    }
+
+    public void britishThermalUnitToOther(double input, String outUnit) {
+    }
+
+    public void usThermToOther(double input, String outUnit) {
+    }
+
+    public void footPoundToOther(double input, String outUnit) {
+    }
+
+    public void atmosphereToOther(double input, String outUnit) {
+    }
+
+    public void barToOther(double input, String outUnit) {
+    }
+
+    public void pascalToOther(double input, String outUnit) {
+    }
+
+    public void poundForceToOther(double input, String outUnit) {
+    }
+
+    public void torrToOther(double input, String outUnit) {
+    }
+
+    public void mphToOther(double input, String outUnit) {
+    }
+
+    public void kphToOther(double input, String outUnit) {
+    }
+
+    public void mpsToOther(double input, String outUnit) {
+    }
+
+    public void fpsToOther(double input, String outUnit) {
+    }
+
+    public void knotToOther(double input, String outUnit) {
+    }
+
+    public void microgramToOther(double input, String outUnit) {
+    }
+
+    public void milligramToOther(double input, String outUnit) {
+    }
+
+    public void gramToOther(double input, String outUnit) {
+    }
+
+    public void kilogramToOther(double input, String outUnit) {
+    }
+
+    public void impTonToOther(double input, String outUnit) {
+    }
+
+    public void usTonToOther(double input, String outUnit) {
+    }
+
+    public void stoneToOther(double input, String outUnit) {
+    }
+
+    public void poundToOther(double input, String outUnit) {
+    }
+
+    public void ounceToOther(double input, String outUnit) {
+    }
+
+    public void hertzToOther(double input, String outUnit) {
+    }
+
+    public void kilohertzToOther(double input, String outUnit) {
+    }
+
+    public void megahertzToOther(double input, String outUnit) {
+    }
+
+    public void gigahertzToOther(double input, String outUnit) {
+    }
+
+    public void degreeToOther(double input, String outUnit) {
+    }
+
+    public void radianToOther(double input, String outUnit) {
+    }
+
+    public void milliradianToOther(double input, String outUnit) {
+    }
+
+    public void gradianToOther(double input, String outUnit) {
+    }
+
+    public void minuteOfArcToOther(double input, String outUnit) {
+    }
+
+    public void secondOfArcToOther(double input, String outUnit) {
+    }
+
+    public void usMpgToOther(double input, String outUnit) {
+    }
+
+    public void mpgToOther(double input, String outUnit) {
+    }
+
+    public void kplToOther(double input, String outUnit) {
+    }
+
+    public void litrePer100ToOther(double input, String outUnit) {
+    }
+
+    public void bitToOther(double input, String outUnit) {
+    }
+
+    public void kilobitToOther(double input, String outUnit) {
+    }
+
+    public void megabitToOther(double input, String outUnit) {
+    }
+
+    public void gigabitToOther(double input, String outUnit) {
+    }
+
+    public void terabitToOther(double input, String outUnit) {
+    }
+
+    public void petabitToOther(double input, String outUnit) {
+    }
+
+    public void byteToOther(double input, String outUnit) {
+    }
+
+    public void kilobyteToOther(double input, String outUnit) {
+    }
+
+    public void megabyteToOther(double input, String outUnit) {
+    }
+
+    public void gigabyteToOther(double input, String outUnit) {
+    }
+
+    public void terabyteToOther(double input, String outUnit) {
+    }
+
+    public void petabyteToOther(double input, String outUnit) {
+    }
+
+    public void bitPsToOther(double input, String outUnit) {
+    }
+
+    public void kilobitPsToOther(double input, String outUnit) {
+    }
+
+    public void kilobytePsToOther(double input, String outUnit) {
+    }
+
+    public void megabitPsToOther(double input, String outUnit) {
+    }
+
+    public void megabytePsToOther(double input, String outUnit) {
+    }
+
+    public void gigabitPsToOther(double input, String outUnit) {
+    }
+
+    public void gigabytePsToOther(double input, String outUnit) {
+    }
+
+    public void terabitPsToOther(double input, String outUnit) {
+    }
+
+    public void terabytePsToOther(double input, String outUnit) {
+    }
+
 }

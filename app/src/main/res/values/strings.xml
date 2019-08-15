@@ -234,10 +234,7 @@
         <item>Kelvin</item>
     </string-array>
 
-    <string-array name="Time">
-        <item>Nanosecond</item>
-        <item>Microsecond</item>
-        <item>Millisecond</item>
+    <string-array name="time">
         <item>Second</item>
         <item>Minute</item>
         <item>Hour</item>
@@ -245,11 +242,9 @@
         <item>Week</item>
         <item>Month</item>
         <item>Year</item>
-        <item>Decade</item>
-        <item>Century</item>
     </string-array>
 
-    <string-array name="Speed">
+    <string-array name="speed">
         <item>Miles per hour</item>
         <item>Kilometre per hour</item>
         <item>Metre per second</item>
@@ -257,12 +252,87 @@
         <item>Knot</item>
     </string-array>
 
-    <string-array name="Pressure">
+    <string-array name="pressure">
         <item>Atmosphere</item>
         <item>Bar</item>
         <item>Pascal</item>
         <item>Pound-force per square inch</item>
         <item>Torr</item>
+    </string-array>
+
+    <string-array name="mass">
+        <item>Microgram</item>
+        <item>Milligram</item>
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Imperial ton</item>
+        <item>US ton</item>
+        <item>Stone</item>
+        <item>Pound</item>
+        <item>Ounce</item>
+    </string-array>
+
+    <string-array name="plane_angle">
+        <item>Degree</item>
+        <item>Radian</item>
+        <item>Milliradian</item>
+        <item>Gradian</item>
+        <item>Minute of arc</item>
+        <item>Second of arc</item>
+    </string-array>
+
+    <string-array name="frequency">
+        <item>Hertz</item>
+        <item>Kilohertz</item>
+        <item>Megahertz</item>
+        <item>Gigahertz</item>
+    </string-array>
+
+    <string-array name="energy">
+        <item>Joule</item>
+        <item>kilojoule</item>
+        <item>Gram calorie</item>
+        <item>Kilocalorie</item>
+        <item>Watt hour</item>
+        <item>Kilowatt hour</item>
+        <item>Electronvolt</item>
+        <item>British thermal unit</item>
+        <item>US therm</item>
+        <item>Foot-pound</item>
+    </string-array>
+
+    <string-array name="fuel">
+        <item>US Miles per gallon</item>
+        <item>Miles per gallon (Imperial)</item>
+        <item>Kilometre per litre</item>
+        <item>Litre per 100 kilometres</item>
+    </string-array>
+
+    <string-array name="digital_storage">
+        <item>Bit</item>
+        <item>Kilobit</item>
+        <item>Megabit</item>
+        <item>Gigabit</item>
+        <item>Terabit</item>
+        <item>Petabit</item>
+        <item>Byte</item>
+        <item>Kilobyte</item>
+        <item>Megabyte</item>
+        <item>Gigabyte</item>
+        <item>Terabyte</item>
+        <item>Petabyte</item>
+    </string-array>
+
+    <string-array name="data_transfer_rate">
+        <item>Bit per second</item>
+        <item>Kilobit per second</item>
+        <item>Kilobyte per second</item>
+        <item>Megabit per second</item>
+        <item>Megabyte per second</item>
+        <item>Gigabit per second</item>
+        <item>Gigabyte per second</item>
+        <item>Terabit per second</item>
+        <item>Terabyte per second</item>
     </string-array>
 
 </resources>

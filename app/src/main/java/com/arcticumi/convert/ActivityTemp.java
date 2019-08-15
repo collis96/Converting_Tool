@@ -34,41 +34,69 @@ public class ActivityTemp extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.home:
                 startActivity(new Intent(this, ActivityMain.class));
+                finish();
                 break;
             case R.id.distance:
                 startActivity(new Intent(this, ActivityDistance.class));
+                finish();
                 break;
             case R.id.area:
                 startActivity(new Intent(this, ActivityArea.class));
+                finish();
                 break;
             case R.id.volume:
                 startActivity(new Intent(this, ActivityVolume.class));
+                finish();
                 break;
             case R.id.time:
                 startActivity(new Intent(this, ActivityTime.class));
+                finish();
                 break;
             case R.id.currency:
                 startActivity(new Intent(this, ActivityCurrency.class));
+                finish();
                 break;
             case R.id.temp:
                 break;
             case R.id.mass:
                 startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
-                startActivity(new Intent(this, ActivityStorage.class));
+                startActivity(new Intent(this, ActivityDigitalStorage.class));
+                finish();
                 break;
-            case R.id.magnetism:
-                startActivity(new Intent(this, ActivityMagnetism.class));
-                break;
-            case R.id.radiation:
-                startActivity(new Intent(this, ActivityRadiation.class));
+            case R.id.speed:
+                startActivity(new Intent(this, ActivitySpeed.class));
+                finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuel.class));
+                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                finish();
+                break;
+            case R.id.frequency:
+                startActivity(new Intent(this, ActivityFrequency.class));
+                finish();
+                break;
+            case R.id.datatransfer:
+                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                finish();
+                break;
+            case R.id.energy:
+                startActivity(new Intent(this, ActivityEnergy.class));
+                finish();
+                break;
+            case R.id.planeangle:
+                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                finish();
+                break;
+            case R.id.pressure:
+                startActivity(new Intent(this, ActivityPressure.class));
+                finish();
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
+                finish();
                 break;
         }
         return true;
@@ -93,7 +121,7 @@ public class ActivityTemp extends AppCompatActivity implements NavigationView.On
 
         final Conversions convert = new Conversions();
         final TextView tvOutput = findViewById(R.id.tvTemperatureOutput);
-        final TextView tvInputSummary = findViewById(R.id.tvTemperatureInputSummary);
+        final TextView tvInputSummary = findViewById(R.id.tvTemperatureInput);
         final EditText etInput = findViewById(R.id.etTemperatureInput);
         Button btnConvert = findViewById(R.id.btnTemperatureConvert);
         final Spinner spTemperatureFrom = findViewById(R.id.spTemperatureFrom);

@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/ivCurrency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
-                app:srcCompat="@drawable/baseline_assignment_returned_white_48dp" />
+                app:srcCompat="@drawable/baseline_attach_money_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,17 +86,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView4"
+                <Button
+                    android:id="@+id/btnSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="Convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etSpeedInput"
+                    app:layout_constraintStart_toEndOf="@+id/etSpeedInput" />
+
+                <Spinner
+                    android:id="@+id/spSpeedTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="@+id/spSpeedFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spSpeedFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spSpeedFrom" />
+
+                <Spinner
+                    android:id="@+id/spSpeedFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvSpeedFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSpeedFrom" />
+
+                <TextView
+                    android:id="@+id/tvSpeedOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSpeedInput"
+                    tools:text="Output" />
+
+                <EditText
+                    android:id="@+id/etSpeedInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spSpeedFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spSpeedTo" />
+
+                <TextView
+                    android:id="@+id/tvSpeedFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="From"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSpeedTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spSpeedTo"
+                    app:layout_constraintStart_toStartOf="@+id/spSpeedTo" />
+
+                <TextView
+                    android:id="@+id/tvSpeedInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etSpeedInput"
+                    tools:text="Input Summary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

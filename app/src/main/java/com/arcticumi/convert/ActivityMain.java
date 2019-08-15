@@ -26,7 +26,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
     private ImageView ivStorage;
     private ImageView ivMagnetism;
     private ImageView ivRadiation;
-    private ImageView ivFluid;
+    private ImageView ivFuel;
     private ImageView ivOther;
 
     @Override
@@ -36,39 +36,67 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.distance:
                 startActivity(new Intent(this, ActivityDistance.class));
+                finish();
                 break;
             case R.id.area:
                 startActivity(new Intent(this, ActivityArea.class));
+                finish();
                 break;
             case R.id.volume:
                 startActivity(new Intent(this, ActivityVolume.class));
+                finish();
                 break;
             case R.id.time:
                 startActivity(new Intent(this, ActivityTime.class));
+                finish();
                 break;
             case R.id.currency:
                 startActivity(new Intent(this, ActivityCurrency.class));
+                finish();
                 break;
             case R.id.temp:
                 startActivity(new Intent(this, ActivityTemp.class));
+                finish();
                 break;
             case R.id.mass:
                 startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
-                startActivity(new Intent(this, ActivityStorage.class));
+                startActivity(new Intent(this, ActivityDigitalStorage.class));
+                finish();
                 break;
-            case R.id.magnetism:
-                startActivity(new Intent(this, ActivityMagnetism.class));
-                break;
-            case R.id.radiation:
-                startActivity(new Intent(this, ActivityRadiation.class));
+            case R.id.speed:
+                startActivity(new Intent(this, ActivitySpeed.class));
+                finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuel.class));
+                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                finish();
+                break;
+            case R.id.frequency:
+                startActivity(new Intent(this, ActivityFrequency.class));
+                finish();
+                break;
+            case R.id.datatransfer:
+                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                finish();
+                break;
+            case R.id.energy:
+                startActivity(new Intent(this, ActivityEnergy.class));
+                finish();
+                break;
+            case R.id.planeangle:
+                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                finish();
+                break;
+            case R.id.pressure:
+                startActivity(new Intent(this, ActivityPressure.class));
+                finish();
                 break;
             case R.id.other:
                 startActivity(new Intent(this, ActivityOther.class));
+                finish();
                 break;
         }
         return true;
@@ -99,16 +127,16 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, ActivityMass.class));
                 break;
             case R.id.ivStorage:
-                startActivity(new Intent(this, ActivityStorage.class));
+                startActivity(new Intent(this, ActivityDigitalStorage.class));
                 break;
             case R.id.ivMagnetism:
-                startActivity(new Intent(this, ActivityMagnetism.class));
+                startActivity(new Intent(this, ActivitySpeed.class));
                 break;
             case R.id.ivRadiation:
-                startActivity(new Intent(this, ActivityRadiation.class));
+                startActivity(new Intent(this, ActivityFuelEconomy.class));
                 break;
             case R.id.ivFluid:
-                startActivity(new Intent(this, ActivityFuel.class));
+                startActivity(new Intent(this, ActivityFrequency.class));
                 break;
             case R.id.ivOther:
                 startActivity(new Intent(this, ActivityOther.class));
@@ -143,7 +171,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
         ivStorage = findViewById(R.id.ivStorage);
         ivMagnetism = findViewById(R.id.ivMagnetism);
         ivRadiation = findViewById(R.id.ivRadiation);
-        ivFluid = findViewById(R.id.ivFluid);
+        ivFuel = findViewById(R.id.ivFluid);
         ivOther = findViewById(R.id.ivOther);
 
         ivDistance.setOnClickListener(this);
@@ -156,7 +184,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
         ivStorage.setOnClickListener(this);
         ivMagnetism.setOnClickListener(this);
         ivRadiation.setOnClickListener(this);
-        ivFluid.setOnClickListener(this);
+        ivFuel.setOnClickListener(this);
         ivOther.setOnClickListener(this);
 
     }

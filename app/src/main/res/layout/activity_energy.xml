@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/ivEnergy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
-                app:srcCompat="@drawable/baseline_sd_storage_white_48dp" />
+                app:srcCompat="@drawable/baseline_attach_money_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,17 +86,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView4"
+                <Button
+                    android:id="@+id/btnEnergy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="Convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etEnergyInput"
+                    app:layout_constraintStart_toEndOf="@+id/etEnergyInput" />
+
+                <Spinner
+                    android:id="@+id/spEnergyTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="@+id/spEnergyFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spEnergyFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spEnergyFrom" />
+
+                <Spinner
+                    android:id="@+id/spEnergyFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvEnergyFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEnergyFrom" />
+
+                <TextView
+                    android:id="@+id/tvEnergyOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEnergyInput"
+                    tools:text="Output" />
+
+                <EditText
+                    android:id="@+id/etEnergyInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spEnergyFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spEnergyTo" />
+
+                <TextView
+                    android:id="@+id/tvEnergyFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="From"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvEnergyTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spEnergyTo"
+                    app:layout_constraintStart_toStartOf="@+id/spEnergyTo" />
+
+                <TextView
+                    android:id="@+id/tvEnergyInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etEnergyInput"
+                    tools:text="Input Summary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

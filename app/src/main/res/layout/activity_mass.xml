@@ -53,17 +53,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/ivMass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvToolkit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
-                app:srcCompat="@drawable/baseline_opacity_white_48dp" />
+                app:srcCompat="@drawable/baseline_assignment_returned_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,17 +86,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView4"
+                <Button
+                    android:id="@+id/btnMass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="Convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etMassInput"
+                    app:layout_constraintStart_toEndOf="@+id/etMassInput" />
+
+                <Spinner
+                    android:id="@+id/spMassTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="@+id/spMassFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spMassFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spMassFrom" />
+
+                <Spinner
+                    android:id="@+id/spMassFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvMassFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMassFrom" />
+
+                <TextView
+                    android:id="@+id/tvMassOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMassInput"
+                    tools:text="Output" />
+
+                <EditText
+                    android:id="@+id/etMassInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spMassFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spMassTo" />
+
+                <TextView
+                    android:id="@+id/tvMassFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="From"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvMassTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spMassTo"
+                    app:layout_constraintStart_toStartOf="@+id/spMassTo" />
+
+                <TextView
+                    android:id="@+id/tvMassInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etMassInput"
+                    tools:text="Input Summary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

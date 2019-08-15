@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/ivAreaHeader"
+                android:id="@+id/ivPressure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
-                app:srcCompat="@drawable/baseline_crop_din_white_48dp" />
+                app:srcCompat="@drawable/baseline_attach_money_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -77,85 +77,45 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/csTop">
+            app:layout_constraintTop_toBottomOf="@+id/csTop"
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tvAreaFrom"
+                <Button
+                    android:id="@+id/btnPressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/from"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvAreaTo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/to"
-                    app:layout_constraintBottom_toTopOf="@+id/spAreaTo"
-                    app:layout_constraintStart_toStartOf="@+id/spAreaTo" />
+                    android:layout_marginStart="8dp"
+                    android:text="Convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etPressureInput"
+                    app:layout_constraintStart_toEndOf="@+id/etPressureInput" />
 
                 <Spinner
-                    android:id="@+id/spAreaFrom"
+                    android:id="@+id/spPressureTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spPressureFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spPressureFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spPressureFrom" />
+
+                <Spinner
+                    android:id="@+id/spPressureFrom"
                     android:layout_width="172dp"
                     android:layout_height="43dp"
                     android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toStartOf="@+id/tvAreaFrom"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAreaFrom" />
-
-                <Spinner
-                    android:id="@+id/spAreaTo"
-                    android:layout_width="172dp"
-                    android:layout_height="43dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/spAreaFrom"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/spAreaFrom"
-                    app:layout_constraintTop_toTopOf="@+id/spAreaFrom" />
-
-                <EditText
-                    android:id="@+id/etAreaInput"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    app:layout_constraintStart_toStartOf="@+id/spAreaFrom"
-                    app:layout_constraintTop_toBottomOf="@+id/spAreaFrom" />
-
-                <Button
-                    android:id="@+id/btnAreaConvert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/convert"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/etAreaInput"
-                    app:layout_constraintStart_toEndOf="@+id/etAreaInput" />
+                    app:layout_constraintStart_toStartOf="@+id/tvPressureFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPressureFrom" />
 
                 <TextView
-                    android:id="@+id/tvAreaInput"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="48dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etAreaInput"
-                    tools:text="tvAreaInputSummary" />
-
-                <TextView
-                    android:id="@+id/tvAreaOutput"
+                    android:id="@+id/tvPressureOutput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -164,8 +124,49 @@
                     android:textSize="36sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAreaInput"
-                    tools:text="tvAreaOutput" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvPressureInput"
+                    tools:text="Output" />
+
+                <EditText
+                    android:id="@+id/etPressureInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spPressureFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spPressureTo" />
+
+                <TextView
+                    android:id="@+id/tvPressureFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="From"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPressureTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spPressureTo"
+                    app:layout_constraintStart_toStartOf="@+id/spPressureTo" />
+
+                <TextView
+                    android:id="@+id/tvPressureInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPressureInput"
+                    tools:text="Input Summary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

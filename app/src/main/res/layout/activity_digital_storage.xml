@@ -53,18 +53,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/ivDigitalStorage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvToolkit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_blur_on_white_48dp" />
+                app:layout_constraintTop_toTopOf="@+id/tvConversion"
+                app:srcCompat="@drawable/baseline_attach_money_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -87,17 +86,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView4"
+                <Button
+                    android:id="@+id/btnDigitalStorage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="181dp"
+                    android:text="Convert"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/etDigitalStorageInput"
+                    app:layout_constraintStart_toEndOf="@+id/etDigitalStorageInput" />
+
+                <Spinner
+                    android:id="@+id/spDigitalStorageTo"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="@+id/spDigitalStorageFrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spDigitalStorageFrom"
+                    app:layout_constraintTop_toTopOf="@+id/spDigitalStorageFrom" />
+
+                <Spinner
+                    android:id="@+id/spDigitalStorageFrom"
+                    android:layout_width="172dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDigitalStorageFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDigitalStorageFrom" />
+
+                <TextView
+                    android:id="@+id/tvDigitalStorageOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="36sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDigitalStorageInput"
+                    tools:text="Output" />
+
+                <EditText
+                    android:id="@+id/etDigitalStorageInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/spDigitalStorageFrom"
+                    app:layout_constraintTop_toBottomOf="@+id/spDigitalStorageTo" />
+
+                <TextView
+                    android:id="@+id/tvDigitalStorageFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="From"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDigitalStorageTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="To"
+                    app:layout_constraintBottom_toTopOf="@+id/spDigitalStorageTo"
+                    app:layout_constraintStart_toStartOf="@+id/spDigitalStorageTo" />
+
+                <TextView
+                    android:id="@+id/tvDigitalStorageInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDigitalStorageInput"
+                    tools:text="Input Summary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

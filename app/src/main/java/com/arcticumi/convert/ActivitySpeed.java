@@ -21,9 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class ActivityMass extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ActivitySpeed extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "ActivityMass";
+    private static final String TAG = "ActivitySpeed";
     private DrawerLayout drawer;
     private String inputUnit, outputUnit;
     private double input;
@@ -61,14 +61,14 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.mass:
+                startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.storage:
                 startActivity(new Intent(this, ActivityDigitalStorage.class));
                 finish();
                 break;
             case R.id.speed:
-                startActivity(new Intent(this, ActivitySpeed.class));
-                finish();
                 break;
             case R.id.fuel:
                 startActivity(new Intent(this, ActivityFuelEconomy.class));
@@ -105,7 +105,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mass);
+        setContentView(R.layout.activity_speed);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);
@@ -120,19 +120,19 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         final Conversions convert = new Conversions();
-        Button btnConvert = findViewById(R.id.btnMass);
-        final EditText etInput = findViewById(R.id.etMassInput);
-        final TextView tvInputSummary = findViewById(R.id.tvMassInput);
-        final TextView tvOutput = findViewById(R.id.tvMassOutput);
-        Spinner spMassFrom = findViewById(R.id.spMassFrom);
-        Spinner spMassTo = findViewById(R.id.spMassTo);
+        Button btnConvert = findViewById(R.id.btnSpeed);
+        final EditText etInput = findViewById(R.id.etSpeedInput);
+        final TextView tvInputSummary = findViewById(R.id.tvSpeedInput);
+        final TextView tvOutput = findViewById(R.id.tvSpeedOutput);
+        Spinner spSpeedFrom = findViewById(R.id.spSpeedFrom);
+        Spinner spSpeedTo = findViewById(R.id.spSpeedTo);
 
-        ArrayAdapter<CharSequence> massAdapter = ArrayAdapter.createFromResource(this, R.array.mass, R.layout.spinner_item);
-        massAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMassFrom.setAdapter(massAdapter);
-        spMassTo.setAdapter(massAdapter);
+        ArrayAdapter<CharSequence> speedAdapter = ArrayAdapter.createFromResource(this, R.array.speed, R.layout.spinner_item);
+        speedAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spSpeedFrom.setAdapter(speedAdapter);
+        spSpeedTo.setAdapter(speedAdapter);
 
-        spMassFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spSpeedFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 inputUnit = parent.getItemAtPosition(position).toString();
@@ -144,7 +144,7 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        spMassTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spSpeedTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 outputUnit = parent.getItemAtPosition(position).toString();
@@ -162,40 +162,24 @@ public class ActivityMass extends AppCompatActivity implements NavigationView.On
                 try {
                     input = Double.valueOf(String.valueOf(etInput.getText()));
                     switch (inputUnit) {
-                        case "Microgram":
-                            convert.microgramToOther(input, outputUnit);
+                        case "Miles per hour":
+                            convert.mphToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Milligram":
-                            convert.milligramToOther(input, outputUnit);
+                        case "Kilometre per hour":
+                            convert.kphToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Gram":
-                            convert.gramToOther(input, outputUnit);
+                        case "Metre per second":
+                            convert.mpsToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Kilogram":
-                            convert.kilogramToOther(input, outputUnit);
+                        case "Foot per second":
+                            convert.fpsToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
-                        case "Imperial ton":
-                            convert.impTonToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "US ton":
-                            convert.usTonToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Stone":
-                            convert.stoneToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Pound":
-                            convert.poundToOther(input, outputUnit);
-                            output = convert.getStrOutput();
-                            break;
-                        case "Ounce":
-                            convert.ounceToOther(input, outputUnit);
+                        case "Knot":
+                            convert.knotToOther(input, outputUnit);
                             output = convert.getStrOutput();
                             break;
                     } //todo put in another function
