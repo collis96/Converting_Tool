@@ -208,9 +208,9 @@ public class ActivityEnergy extends AppCompatActivity implements NavigationView.
                     Log.d(TAG, "onClick: Output value after conversion = " + output);
                     String inputSummary;
                     inputSummary = input + " " + inputUnit + "s =";
-                    double temp = Math.round(Double.parseDouble(output) * 100);
-                    temp = temp / 100;
-                    output = String.valueOf(temp);
+//                    double temp = Math.round(Double.parseDouble(output) * 100);
+//                    temp = temp / 100;
+//                    output = String.valueOf(temp);
                     String outputString;
                     outputString = output + " " + outputUnit + "s";
                     tvInputSummary.setText(inputSummary);

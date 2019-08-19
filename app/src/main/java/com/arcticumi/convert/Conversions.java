@@ -12,6 +12,7 @@ public class Conversions {
     private BigDecimal bigConv;
     private BigDecimal bigOutput;
     private String strOutput;
+    private String integer;
 
     public double getDoubleOut() {
         return doubleOut;
@@ -2105,216 +2106,2310 @@ public class Conversions {
     }
 
     public void secondToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                strOutput = String.valueOf(input);
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(60);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Day":
+                bigConv = new BigDecimal(86400);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Week":
+                bigConv = new BigDecimal(604800);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Month":
+                bigConv = new BigDecimal(2628000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Year":
+                bigConv = new BigDecimal(31540000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void minuteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(60);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                strOutput = String.valueOf(input);
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(60);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Day":
+                bigConv = new BigDecimal(1440);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Week":
+                bigConv = new BigDecimal(10080);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Month":
+                bigConv = new BigDecimal(43800.048);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Year":
+                bigConv = new BigDecimal(525600);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void hourToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(60);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Hour":
+                strOutput = String.valueOf(input);
+                break;
+            case "Day":
+                bigConv = new BigDecimal(24);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Week":
+                bigConv = new BigDecimal(168);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Month":
+                bigConv = new BigDecimal(730.001);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Year":
+                bigConv = new BigDecimal(8760);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void dayToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(86400);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(1440);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(24);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Day":
+                strOutput = String.valueOf(input);
+                break;
+            case "Week":
+                bigConv = new BigDecimal(7);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Month":
+                bigConv = new BigDecimal(30.417);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Year":
+                bigConv = new BigDecimal(365);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void weekToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(604800);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(10080);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(168);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Day":
+                bigConv = new BigDecimal(7);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Week":
+                strOutput = String.valueOf(input);
+                break;
+            case "Month":
+                bigConv = new BigDecimal(4.345);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Year":
+                bigConv = new BigDecimal(52.143);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void monthToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(2628000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(43800.048);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(730.001);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Day":
+                bigConv = new BigDecimal(30.417);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Week":
+                bigConv = new BigDecimal(4.345);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Month":
+                strOutput = String.valueOf(input);
+                break;
+            case "Year":
+                bigConv = new BigDecimal(12);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void yearToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Second":
+                bigConv = new BigDecimal(31540000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Minute":
+                bigConv = new BigDecimal(525600);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Hour":
+                bigConv = new BigDecimal(8760);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Day":
+                bigConv = new BigDecimal(365);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Week":
+                bigConv = new BigDecimal(52.143);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Month":
+                bigConv = new BigDecimal(12);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Year":
+                break;
+        }
     }
 
     public void jouleToOther(double input, String outUnit) {
+        String inputtest = String.valueOf(input);
+        bigInput = new BigDecimal(inputtest);
+        switch (outUnit) {
+            case "Joule":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(4.184);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(4184);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(3600000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "6242000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(1055.056);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(105500000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(1.356);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void kilojouleToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(239.006);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(4.184);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(3.6);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "6242000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(1.055);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(105480.4);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(737.562);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void gramCalorieToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(4.184);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(239.006);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gram calorie":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(860.421);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(860420.65);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "26110000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(252.164);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(25210000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(3.086);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void kilocalorieToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(4184);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(4.184);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                strOutput = String.valueOf(input);
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(1.162);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(860.421);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "26110000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(3.966);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(25210.421);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(3085.96);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void wattHourToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(3.6);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(860.421);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(1.162);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "22470000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(3.412);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(29300.111);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(2655.224);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void kilowattHourToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(3600000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(3600);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(860420.65);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(860.421);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilowatt hour":
+                strOutput = String.valueOf(input);
+                break;
+            case "Electronvolt":
+                String conv = "22470000000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(3412.142);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(29.3);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(2655000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void electronvoltToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        String conv;
+        switch (outUnit) {
+            case "Joule":
+                conv = "6242000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilojoule":
+                conv = "6242000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gram calorie":
+                conv = "26110000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilocalorie":
+                conv = "26110000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                conv = "22470000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                conv = "22470000000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                strOutput = String.valueOf(input);
+                break;
+            case "British thermal unit":
+                conv = "6585000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US therm":
+                conv = "658400000000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                conv = "8462000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void britishThermalUnitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(1055.056);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(1.055);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(252.164);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(3.966);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(3.412);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(3412.142);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "6585000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                strOutput = String.valueOf(input);
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(99976.129);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(778.169);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void usThermToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(105500000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(105480.4);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(25210000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(25210.421);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(29300.111);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(29.3);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Electronvolt":
+                String conv = "658400000000000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(99976.129);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "US therm":
+                strOutput = String.valueOf(input);
+                break;
+            case "Foot-pound":
+                bigConv = new BigDecimal(77800000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void footPoundToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Joule":
+                bigConv = new BigDecimal(1.356);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilojoule":
+                bigConv = new BigDecimal(737.562);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gram calorie":
+                bigConv = new BigDecimal(3.086);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilocalorie":
+                bigConv = new BigDecimal(3085.96);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Watt hour":
+                bigConv = new BigDecimal(2655.224);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilowatt hour":
+                bigConv = new BigDecimal(2655000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Electronvolt":
+                String conv = "8462000000000000000";
+                bigConv = new BigDecimal(conv);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "British thermal unit":
+                bigConv = new BigDecimal(778.169);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US therm":
+                bigConv = new BigDecimal(77800000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot-pound":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void atmosphereToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Atmosphere":
+                strOutput = String.valueOf(input);
+                break;
+            case "Bar":
+                bigConv = new BigDecimal(1.013);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pascal":
+                bigConv = new BigDecimal(101325);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pound-force per square inch":
+                bigConv = new BigDecimal(14.696);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Torr":
+                bigConv = new BigDecimal(760);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void barToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Atmosphere":
+                bigConv = new BigDecimal(1.013);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Bar":
+                strOutput = String.valueOf(input);
+                break;
+            case "Pascal":
+                bigConv = new BigDecimal(100000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pound-force per square inch":
+                bigConv = new BigDecimal(14.504);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Torr":
+                bigConv = new BigDecimal(750.062);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void pascalToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Atmosphere":
+                bigConv = new BigDecimal(101325);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Bar":
+                bigConv = new BigDecimal(100000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Pascal":
+                strOutput = String.valueOf(input);
+                break;
+            case "Pound-force per square inch":
+                bigConv = new BigDecimal(6894.757);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Torr":
+                bigConv = new BigDecimal(133.322);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void poundForceToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Atmosphere":
+                bigConv = new BigDecimal(14.696);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Bar":
+                bigConv = new BigDecimal(14.504);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Pascal":
+                bigConv = new BigDecimal(6894.757);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pound-force per square inch":
+                strOutput = String.valueOf(input);
+                break;
+            case "Torr":
+                bigConv = new BigDecimal(51.715);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
     }
 
     public void torrToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Atmosphere":
+                bigConv = new BigDecimal(760);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Bar":
+                bigConv = new BigDecimal(750.062);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Pascal":
+                bigConv = new BigDecimal(133.322);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pound-force per square inch":
+                bigConv = new BigDecimal(51.715);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Torr":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void mphToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Miles per hour":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilometre per hour":
+                bigConv = new BigDecimal(1.609);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Metre per second":
+                bigConv = new BigDecimal(2.237);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot per second":
+                bigConv = new BigDecimal(1.467);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Knot":
+                bigConv = new BigDecimal(1.151);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void kphToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Miles per hour":
+                bigConv = new BigDecimal(1.609);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilometre per hour":
+                strOutput = String.valueOf(input);
+                break;
+            case "Metre per second":
+                bigConv = new BigDecimal(3.6);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot per second":
+                bigConv = new BigDecimal(1.097);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Knot":
+                bigConv = new BigDecimal(1.852);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void mpsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Miles per hour":
+                bigConv = new BigDecimal(2.237);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilometre per hour":
+                bigConv = new BigDecimal(3.6);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Metre per second":
+                strOutput = String.valueOf(input);
+                break;
+            case "Foot per second":
+                bigConv = new BigDecimal(3.281);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Knot":
+                bigConv = new BigDecimal(1.944);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void fpsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Miles per hour":
+                bigConv = new BigDecimal(1.467);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilometre per hour":
+                bigConv = new BigDecimal(1.097);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Metre per second":
+                bigConv = new BigDecimal(3.281);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot per second":
+                strOutput = String.valueOf(input);
+                break;
+            case "Knot":
+                bigConv = new BigDecimal(1.688);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void knotToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Miles per hour":
+                bigConv = new BigDecimal(1.151);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilometre per hour":
+                bigConv = new BigDecimal(1.852);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Metre per second":
+                bigConv = new BigDecimal(1.944);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Foot per second":
+                bigConv = new BigDecimal(1.688);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Knot":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void microgramToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                strOutput = String.valueOf(input);
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void milligramToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void gramToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void kilogramToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                strOutput = String.valueOf(input);
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void impTonToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                strOutput = String.valueOf(input);
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void usTonToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                strOutput = String.valueOf(input);
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void stoneToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                strOutput = String.valueOf(input);
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void poundToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                strOutput = String.valueOf(input);
+                break;
+            case "Ounce":
+                break;
+        }
     }
 
     public void ounceToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                break;
+            case "Milligram":
+                break;
+            case "Gram":
+                break;
+            case "Kilogram":
+                break;
+            case "Imperial ton":
+                break;
+            case "US ton":
+                break;
+            case "Stone":
+                break;
+            case "Pound":
+                break;
+            case "Ounce":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void hertzToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Hertz":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilohertz":
+                break;
+            case "Megahertz":
+                break;
+            case "Gigahertz":
+                break;
+        }
     }
 
     public void kilohertzToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Hertz":
+                break;
+            case "Kilohertz":
+                strOutput = String.valueOf(input);
+                break;
+            case "Megahertz":
+                break;
+            case "Gigahertz":
+                break;
+        }
     }
 
     public void megahertzToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Hertz":
+                break;
+            case "Kilohertz":
+                break;
+            case "Megahertz":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gigahertz":
+                break;
+        }
     }
 
     public void gigahertzToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Hertz":
+                break;
+            case "Kilohertz":
+                break;
+            case "Megahertz":
+                break;
+            case "Gigahertz":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void degreeToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                strOutput = String.valueOf(input);
+                break;
+            case "Radian":
+                break;
+            case "Milliradian":
+                break;
+            case "Gradian":
+                break;
+            case "Minute of arc":
+                break;
+            case "Second of arc":
+                break;
+        }
     }
 
     public void radianToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                break;
+            case "Radian":
+                strOutput = String.valueOf(input);
+                break;
+            case "Milliradian":
+                break;
+            case "Gradian":
+                break;
+            case "Minute of arc":
+                break;
+            case "Second of arc":
+                break;
+        }
     }
 
     public void milliradianToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                break;
+            case "Radian":
+                break;
+            case "Milliradian":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gradian":
+                break;
+            case "Minute of arc":
+                break;
+            case "Second of arc":
+                break;
+        }
     }
 
     public void gradianToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                break;
+            case "Radian":
+                break;
+            case "Milliradian":
+                break;
+            case "Gradian":
+                strOutput = String.valueOf(input);
+                break;
+            case "Minute of arc":
+                break;
+            case "Second of arc":
+                break;
+        }
     }
 
     public void minuteOfArcToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                break;
+            case "Radian":
+                break;
+            case "Milliradian":
+                break;
+            case "Gradian":
+                break;
+            case "Minute of arc":
+                strOutput = String.valueOf(input);
+                break;
+            case "Second of arc":
+                break;
+        }
     }
 
     public void secondOfArcToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Degree":
+                break;
+            case "Radian":
+                break;
+            case "Milliradian":
+                break;
+            case "Gradian":
+                break;
+            case "Minute of arc":
+                break;
+            case "Second of arc":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void usMpgToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "US Miles per gallon":
+                strOutput = String.valueOf(input);
+                break;
+            case "Miles per gallon":
+                break;
+            case "Kilometre per litre":
+                break;
+            case "Litre per 100 kilometres":
+                break;
+        }
     }
 
     public void mpgToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "US Miles per gallon":
+                break;
+            case "Miles per gallon":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilometre per litre":
+                break;
+            case "Litre per 100 kilometres":
+                break;
+        }
     }
 
     public void kplToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "US Miles per gallon":
+                break;
+            case "Miles per gallon":
+                break;
+            case "Kilometre per litre":
+                strOutput = String.valueOf(input);
+                break;
+            case "Litre per 100 kilometres":
+                break;
+        }
     }
 
     public void litrePer100ToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "US Miles per gallon":
+                break;
+            case "Miles per gallon":
+                break;
+            case "Kilometre per litre":
+                break;
+            case "Litre per 100 kilometres":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void bitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                integer = "1000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabyte":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                integer = "8000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                integer = "8000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void kilobitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                integer = "8000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void megabitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void gigabitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                integer = "125000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void terabitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                integer = "1000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                integer = "125000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                integer = "125000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void petabitToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                integer = "1000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                integer = "1000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Petabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Byte":
+                integer = "125000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                integer = "125000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                integer = "125000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void byteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(125000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                integer = "125000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                integer = "125000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                integer = "1000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void kilobyteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(125000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                integer = "125000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void megabyteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(125000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void gigabyteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(125000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void terabyteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                integer = "8000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(125);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Byte":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                integer = "1000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Petabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+        }
     }
 
     public void petabyteToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                integer = "8000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobit":
+                integer = "8000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabit":
+                integer = "8000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabit":
+                bigConv = new BigDecimal(8000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabit":
+                bigConv = new BigDecimal(8000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Petabit":
+                bigConv = new BigDecimal(8);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Byte":
+                integer = "1000000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilobyte":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Megabyte":
+                integer = "1000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gigabyte":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Terabyte":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Petabyte":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
     public void bitPsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void kilobitPsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void kilobytePsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void megabitPsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void megabytePsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void gigabitPsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void gigabytePsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                strOutput = String.valueOf(input);
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void terabitPsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                strOutput = String.valueOf(input);
+                break;
+            case "Terabyte":
+                break;
+        }
     }
 
     public void terabytePsToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Bit":
+                break;
+            case "Kilobit":
+                break;
+            case "Kilobyte":
+                break;
+            case "Megabit":
+                break;
+            case "Megabyte":
+                break;
+            case "Gigabit":
+                break;
+            case "Gigabyte":
+                break;
+            case "Terabit":
+                break;
+            case "Terabyte":
+                strOutput = String.valueOf(input);
+                break;
+        }
     }
 
 }

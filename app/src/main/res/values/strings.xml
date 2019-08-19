@@ -290,7 +290,7 @@
 
     <string-array name="energy">
         <item>Joule</item>
-        <item>kilojoule</item>
+        <item>Kilojoule</item>
         <item>Gram calorie</item>
         <item>Kilocalorie</item>
         <item>Watt hour</item>
