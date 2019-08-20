@@ -94,10 +94,6 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
                 startActivity(new Intent(this, ActivityPressure.class));
                 finish();
                 break;
-            case R.id.other:
-                startActivity(new Intent(this, ActivityOther.class));
-                finish();
-                break;
         }
         return true;
     }

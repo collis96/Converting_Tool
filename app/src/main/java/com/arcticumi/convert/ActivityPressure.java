@@ -21,6 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ActivityPressure extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "ActivityPressure";
@@ -92,10 +95,6 @@ public class ActivityPressure extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.pressure:
                 startActivity(new Intent(this, ActivityPressure.class));
-                finish();
-                break;
-            case R.id.other:
-                startActivity(new Intent(this, ActivityOther.class));
                 finish();
                 break;
         }
@@ -187,8 +186,8 @@ public class ActivityPressure extends AppCompatActivity implements NavigationVie
                     Log.d(TAG, "onClick: Output value after conversion = " + output);
                     String inputSummary;
                     inputSummary = input + " " + inputUnit + "s =";
-                    double temp = Math.round(Double.parseDouble(output) * 100);
-                    temp = temp / 100;
+                    BigDecimal temp = new BigDecimal(output);
+                    temp = temp.setScale(2, RoundingMode.CEILING);
                     output = String.valueOf(temp);
                     String outputString;
                     outputString = output + " " + outputUnit + "s";

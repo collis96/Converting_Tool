@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvConversion"
                 app:layout_constraintTop_toTopOf="@+id/tvConversion"
-                app:srcCompat="@drawable/baseline_attach_money_white_48dp" />
+                app:srcCompat="@drawable/baseline_wifi_tethering_white_48dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

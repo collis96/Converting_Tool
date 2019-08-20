@@ -22,12 +22,10 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
     private ImageView ivTime;
     private ImageView ivCurrency;
     private ImageView ivTemperature;
-    private ImageView ivWeight;
+    private ImageView ivMass;
     private ImageView ivStorage;
-    private ImageView ivMagnetism;
-    private ImageView ivRadiation;
-    private ImageView ivFuel;
-    private ImageView ivOther;
+    private ImageView ivEnergy;
+    private ImageView ivSpeed;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -94,10 +92,6 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, ActivityPressure.class));
                 finish();
                 break;
-            case R.id.other:
-                startActivity(new Intent(this, ActivityOther.class));
-                finish();
-                break;
         }
         return true;
     }
@@ -107,39 +101,43 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
         switch (v.getId()) {
             case R.id.ivDistance:
                 startActivity(new Intent(this, ActivityDistance.class));
+                finish();
                 break;
             case R.id.ivArea:
                 startActivity(new Intent(this, ActivityArea.class));
+                finish();
                 break;
             case R.id.ivVolume:
                 startActivity(new Intent(this, ActivityVolume.class));
+                finish();
                 break;
             case R.id.ivTime:
                 startActivity(new Intent(this, ActivityTime.class));
+                finish();
                 break;
             case R.id.ivCurrency:
                 startActivity(new Intent(this, ActivityCurrency.class));
+                finish();
                 break;
             case R.id.ivTemp:
                 startActivity(new Intent(this, ActivityTemp.class));
+                finish();
                 break;
-            case R.id.ivWeight:
+            case R.id.ivMass:
                 startActivity(new Intent(this, ActivityMass.class));
+                finish();
                 break;
             case R.id.ivStorage:
                 startActivity(new Intent(this, ActivityDigitalStorage.class));
+                finish();
                 break;
-            case R.id.ivMagnetism:
+            case R.id.ivEnergy:
+                startActivity(new Intent(this, ActivityEnergy.class));
+                finish();
+                break;
+            case R.id.ivSpeed:
                 startActivity(new Intent(this, ActivitySpeed.class));
-                break;
-            case R.id.ivRadiation:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
-                break;
-            case R.id.ivFluid:
-                startActivity(new Intent(this, ActivityFrequency.class));
-                break;
-            case R.id.ivOther:
-                startActivity(new Intent(this, ActivityOther.class));
+                finish();
                 break;
         }
     }
@@ -167,12 +165,10 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
         ivTime = findViewById(R.id.ivTime);
         ivCurrency = findViewById(R.id.ivCurrency);
         ivTemperature = findViewById(R.id.ivTemp);
-        ivWeight = findViewById(R.id.ivWeight);
+        ivMass = findViewById(R.id.ivMass);
         ivStorage = findViewById(R.id.ivStorage);
-        ivMagnetism = findViewById(R.id.ivMagnetism);
-        ivRadiation = findViewById(R.id.ivRadiation);
-        ivFuel = findViewById(R.id.ivFluid);
-        ivOther = findViewById(R.id.ivOther);
+        ivEnergy = findViewById(R.id.ivEnergy);
+        ivSpeed = findViewById(R.id.ivSpeed);
 
         ivDistance.setOnClickListener(this);
         ivArea.setOnClickListener(this);
@@ -180,13 +176,10 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
         ivTime.setOnClickListener(this);
         ivCurrency.setOnClickListener(this);
         ivTemperature.setOnClickListener(this);
-        ivWeight.setOnClickListener(this);
+        ivMass.setOnClickListener(this);
         ivStorage.setOnClickListener(this);
-        ivMagnetism.setOnClickListener(this);
-        ivRadiation.setOnClickListener(this);
-        ivFuel.setOnClickListener(this);
-        ivOther.setOnClickListener(this);
-
+        ivEnergy.setOnClickListener(this);
+        ivSpeed.setOnClickListener(this);
     }
 
 }

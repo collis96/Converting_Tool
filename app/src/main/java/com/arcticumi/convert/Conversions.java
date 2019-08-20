@@ -3062,20 +3062,46 @@ public class Conversions {
                 strOutput = String.valueOf(input);
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Tonne":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                integer = "1016000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                integer = "907200000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                integer = "6350000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
+                integer = "453600000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Ounce":
+                integer = "28350000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3084,23 +3110,43 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
                 strOutput = String.valueOf(input);
                 break;
             case "Gram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(1016000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(907200000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(6350000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(453592.37);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(28349.523);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3109,23 +3155,43 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
                 strOutput = String.valueOf(input);
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(1016000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(907184.74);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(6350.293);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(453.592);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(28.35);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3134,23 +3200,89 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
                 strOutput = String.valueOf(input);
                 break;
+            case "Tonne":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
             case "Imperial ton":
+                bigConv = new BigDecimal(1016.047);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(907.185);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(6.35);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(2.205);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(35.274);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+        }
+    }
+
+    public void tonneToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
+        switch (outUnit) {
+            case "Microgram":
+                integer = "1000000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Milligram":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Gram":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Kilogram":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Tonne":
+                strOutput = String.valueOf(input);
+                break;
+            case "Imperial ton":
+                bigConv = new BigDecimal(1.016);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "US ton":
+                bigConv = new BigDecimal(1.102);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Stone":
+                bigConv = new BigDecimal(157.473);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Pound":
+                bigConv = new BigDecimal(2204.623);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Ounce":
+                bigConv = new BigDecimal(35273.962);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
@@ -3159,23 +3291,44 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                integer = "1016000000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(1016000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(1016000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(1016.047);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(1.016);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Imperial ton":
                 strOutput = String.valueOf(input);
                 break;
             case "US ton":
+                bigConv = new BigDecimal(1.12);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(160);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(2240);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(35840);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
@@ -3184,23 +3337,44 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                integer = "907200000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(907200000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(907184.74);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(907.185);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(1.102);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(1.12);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
                 strOutput = String.valueOf(input);
                 break;
             case "Stone":
+                bigConv = new BigDecimal(142.857);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(2000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(32000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
@@ -3209,23 +3383,44 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                integer = "6350000000";
+                bigConv = new BigDecimal(integer);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(6350000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(6350.293);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(6.35);
+                strOutput = bigInput.multiply(bigConv).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(157.473);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(160);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(142.857);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
                 strOutput = String.valueOf(input);
                 break;
             case "Pound":
+                bigConv = new BigDecimal(14);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(224);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
@@ -3234,23 +3429,43 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                bigConv = new BigDecimal(453600000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(453592.37);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(453.592);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(2.205);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(2204.623);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(2240);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(2000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(14);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
                 strOutput = String.valueOf(input);
                 break;
             case "Ounce":
+                bigConv = new BigDecimal(16);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
@@ -3259,20 +3474,40 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
+                bigConv = new BigDecimal(28350000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Milligram":
+                bigConv = new BigDecimal(28349.523);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gram":
+                bigConv = new BigDecimal(28.35);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilogram":
+                bigConv = new BigDecimal(35.274);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
+                break;
+            case "Tonne":
+                bigConv = new BigDecimal(35273.962);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Imperial ton":
+                bigConv = new BigDecimal(35840);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "US ton":
+                bigConv = new BigDecimal(32000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Stone":
+                bigConv = new BigDecimal(224);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Pound":
+                bigConv = new BigDecimal(16);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Ounce":
                 strOutput = String.valueOf(input);
@@ -3287,10 +3522,16 @@ public class Conversions {
                 strOutput = String.valueOf(input);
                 break;
             case "Kilohertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Megahertz":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Gigahertz":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3299,13 +3540,19 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilohertz":
                 strOutput = String.valueOf(input);
                 break;
             case "Megahertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Gigahertz":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3314,13 +3561,19 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilohertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Megahertz":
                 strOutput = String.valueOf(input);
                 break;
             case "Gigahertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
@@ -3329,10 +3582,16 @@ public class Conversions {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
+                bigConv = new BigDecimal(1000000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilohertz":
+                bigConv = new BigDecimal(1000000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Megahertz":
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Gigahertz":
                 strOutput = String.valueOf(input);

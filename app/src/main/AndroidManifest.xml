@@ -85,11 +85,6 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityOther">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".ActivityEnergy">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
