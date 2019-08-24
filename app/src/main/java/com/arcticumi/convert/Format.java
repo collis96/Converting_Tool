@@ -4,7 +4,7 @@ public class Format {
 
     private String output;
 
-    public Format(String inUnit, String outUnit, double convertedNum){
+    Format(String inUnit, String outUnit, double convertedNum) {
         if (inUnit.equals("Inches")) {
             switch (outUnit) { //todo put switch in another function
                 case "Inches":

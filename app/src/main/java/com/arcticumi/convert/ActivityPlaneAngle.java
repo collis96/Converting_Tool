@@ -80,6 +80,8 @@ public class ActivityPlaneAngle extends AppCompatActivity implements NavigationV
                 finish();
                 break;
             case R.id.frequency:
+                startActivity(new Intent(this, ActivityFrequency.class));
+                finish();
                 break;
             case R.id.datatransfer:
                 startActivity(new Intent(this, ActivityDataTranserRate.class));
@@ -90,8 +92,6 @@ public class ActivityPlaneAngle extends AppCompatActivity implements NavigationV
                 finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
-                finish();
                 break;
             case R.id.pressure:
                 startActivity(new Intent(this, ActivityPressure.class));
@@ -104,7 +104,7 @@ public class ActivityPlaneAngle extends AppCompatActivity implements NavigationV
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plane_angle);
+        setContentView(R.layout.activity_soon);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);

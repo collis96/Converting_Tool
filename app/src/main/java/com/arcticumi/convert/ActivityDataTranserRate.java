@@ -35,7 +35,7 @@ public class ActivityDataTranserRate extends AppCompatActivity implements Naviga
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_transfer);
+        setContentView(R.layout.activity_soon);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         getSupportActionBar().setTitle(null);

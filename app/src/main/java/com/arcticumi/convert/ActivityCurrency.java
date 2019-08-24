@@ -21,8 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -89,7 +89,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.frequency:
@@ -97,7 +97,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.datatransfer:
-                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.energy:
@@ -105,7 +105,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.pressure:
@@ -147,7 +147,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 baseCurrency = parent.getItemAtPosition(position).toString();
-                switch(baseCurrency){
+                switch (baseCurrency) {
                     case "US Dollar":
                         baseCode = "USD";
                         URL = "http://www.floatrates.com/daily/usd.xml";
@@ -767,7 +767,7 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 targetCurrency = parent.getItemAtPosition(position).toString();
-                switch(targetCurrency){
+                switch (targetCurrency) {
                     case "US Dollar":
                         targetCode = "USD";
                         break;
@@ -1284,10 +1284,10 @@ public class ActivityCurrency extends AppCompatActivity implements NavigationVie
             ParseCurrency parseCurrency = new ParseCurrency();
             parseCurrency.parse(result);
             conversions = parseCurrency.getConversions();
-            for(FeedItem conv : conversions){
+            for (FeedItem conv : conversions) {
                 Log.d(TAG, "onPostExecute: Inside conversions for loop");
                 Log.d(TAG, "onPostExecute: target currency " + conv.getTargetCurrency());
-                if(targetCode.equals(conv.getTargetCurrency())){
+                if (targetCode.equals(conv.getTargetCurrency())) {
                     double output;
                     String inputString;
                     String outputString;

@@ -77,21 +77,21 @@ public class ActivityEnergy extends AppCompatActivity implements NavigationView.
                 finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.frequency:
+                startActivity(new Intent(this, ActivityFrequency.class));
+                finish();
                 break;
             case R.id.datatransfer:
-                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.energy:
-                startActivity(new Intent(this, ActivityEnergy.class));
-                finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.pressure:

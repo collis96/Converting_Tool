@@ -14,7 +14,7 @@ public class Conversions {
     private String strOutput;
     private String integer;
 
-    public double getDoubleOut() {
+    double getDoubleOut() {
         return doubleOut;
     }
 
@@ -22,185 +22,184 @@ public class Conversions {
         return strOutput;
     }
 
-    public void inchesToOther(double input, String outUnit) {
+    void inchesToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Inches":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Feet":
-                doubleOut = input / 12;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(12);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Miles":
-                doubleOut = input / 63360;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(63360);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Centimetres":
-                doubleOut = input * 2.54;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(2.54);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Metres":
-                doubleOut = input / 39.37;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(39.37);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Kilometres":
-                doubleOut = input / 39370.079;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(39370.079);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
 
-    public void feetToOther(double input, String outUnit) {
+    void feetToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Inches":
-                doubleOut = input * 12;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(12);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Feet":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Miles":
-                doubleOut = input / 5280;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(5280);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Centimetres":
-                doubleOut = input * 30.48;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(30.48);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Metres":
-                doubleOut = input * 0.3048;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(3.281);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Kilometres":
-                doubleOut = input / 3280.84;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(3280.84);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
 
-    public void milesToOther(double input, String outUnit) {
+    void milesToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Inches":
-                doubleOut = input * 63360;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(63360);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Feet":
-                doubleOut = input * 5280;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(5280);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Miles":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Centimetres":
-                doubleOut = input * 160934.4;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(160934.4);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Metres":
-                doubleOut = input * 1609.344;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1609.344);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilometres":
-                doubleOut = input * 1.60934;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1.60934);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
 
-    public void centiToOther(double input, String outUnit) {
+    void centiToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Feet":
-                doubleOut = input / 30.48;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(30.48);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Miles":
-                doubleOut = input / 160934.4;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(160934.4);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Inches":
-                doubleOut = input * 0.3937007;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(2.54);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Centimetres":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Metres":
-                doubleOut = input / 100;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(100);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Kilometres":
-                doubleOut = input / 100000;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(100000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
 
-    public void metresToOther(double input, String outUnit) {
+    void metresToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Feet":
-                doubleOut = input * 3.28084;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(3.28084);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Miles":
-                doubleOut = input / 1609.344;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1609.344);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "Centimetres":
-                doubleOut = input * 100;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(100);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Metres":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Inches":
-                doubleOut = input * 39.37;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(39.37);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilometres":
-                doubleOut = input / 1000;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
         }
     }
 
-    public void kilometreToOther(double input, String outUnit) {
+    void kilometreToOther(double input, String outUnit) {
+        bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Feet":
-                doubleOut = input * 3280.84;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(3280.84);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Miles":
-                doubleOut = input * 0.621371;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1.609);
+                strOutput = bigInput.divide(bigConv, 2, RoundingMode.HALF_UP).toString();
                 break;
             case "centimetres":
-                doubleOut = input * 100000;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(100000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Metres":
-                doubleOut = input * 1000;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(1000);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
             case "Kilometres":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Inches":
-                doubleOut = input * 39370.079;
-                strOutput = String.valueOf(doubleOut);
+                bigConv = new BigDecimal(39370.079);
+                strOutput = bigInput.multiply(bigConv).toString();
                 break;
         }
     }
 
-    public void sqKilometreToOther(double input, String outUnit) {
+    void sqKilometreToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Square metre":
                 doubleOut = input * 1000000;
@@ -233,15 +232,14 @@ public class Conversions {
         }
     }
 
-    public void sqMetreToOther(double input, String outUnit) {
+    void sqMetreToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 1000000;
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Square metre":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Square mile":
                 doubleOut = input / 2590000;
@@ -270,7 +268,7 @@ public class Conversions {
         }
     }
 
-    public void sqMileToOther(double input, String outUnit) {
+    void sqMileToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input * 2.59;
@@ -281,8 +279,7 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Square mile":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Square yard":
                 doubleOut = input * 3098000;
@@ -310,7 +307,7 @@ public class Conversions {
         }
     }
 
-    public void sqYardToOther(double input, String outUnit) {
+    void sqYardToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 1196000;
@@ -325,8 +322,7 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Square yard":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Square foot":
                 doubleOut = input * 9;
@@ -347,7 +343,7 @@ public class Conversions {
         }
     }
 
-    public void sqFootToOther(double input, String outUnit) {
+    void sqFootToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 10760000;
@@ -366,8 +362,7 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Square foot":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Square inch":
                 doubleOut = input * 144;
@@ -384,7 +379,7 @@ public class Conversions {
         }
     }
 
-    public void sqInchToOther(double input, String outUnit) {
+    void sqInchToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 1550000000;
@@ -410,8 +405,7 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Square inch":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Hectare":
                 doubleOut = input / 15500000;
@@ -424,7 +418,7 @@ public class Conversions {
         }
     }
 
-    public void hectareToOther(double input, String outUnit) {
+    void hectareToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 100;
@@ -451,8 +445,7 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Hectare":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
             case "Acre":
                 doubleOut = input * 2.471;
@@ -461,7 +454,7 @@ public class Conversions {
         }
     }
 
-    public void acreToOther(double input, String outUnit) {
+    void acreToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Square kilometre":
                 doubleOut = input / 247.105;
@@ -492,13 +485,12 @@ public class Conversions {
                 strOutput = String.valueOf(doubleOut);
                 break;
             case "Acre":
-                doubleOut = input;
-                strOutput = String.valueOf(doubleOut);
+                strOutput = String.valueOf(input);
                 break;
         }
     }
 
-    public void celsiusToOther(double input, String outUnit) {
+    void celsiusToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Celsius":
                 strOutput = String.valueOf(input);
@@ -520,7 +512,7 @@ public class Conversions {
         }
     }
 
-    public void fahrenheitToOther(double input, String outUnit) {
+    void fahrenheitToOther(double input, String outUnit) {
         double temp = 0.555556;
         bigInput = new BigDecimal(input);
         bigConv = new BigDecimal(32);
@@ -543,7 +535,7 @@ public class Conversions {
         }
     }
 
-    public void kelvinToOther(double input, String outUnit) {
+    void kelvinToOther(double input, String outUnit) {
         switch (outUnit) {
             case "Celsius":
                 bigInput = new BigDecimal(input);
@@ -566,7 +558,7 @@ public class Conversions {
         }
     }
 
-    public void cubicMetreToOther(double input, String outUnit) {
+    void cubicMetreToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -647,7 +639,7 @@ public class Conversions {
         }
     }
 
-    public void cubicFootToOther(double input, String outUnit) {
+    void cubicFootToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -728,7 +720,7 @@ public class Conversions {
         }
     }
 
-    public void cubicInchToOther(double input, String outUnit) {
+    void cubicInchToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -809,7 +801,7 @@ public class Conversions {
         }
     }
 
-    public void litreToOther(double input, String outUnit) {
+    void litreToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -890,7 +882,7 @@ public class Conversions {
         }
     }
 
-    public void millilitreToOther(double input, String outUnit) {
+    void millilitreToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -971,7 +963,7 @@ public class Conversions {
         }
     }
 
-    public void usLiquidGallonToOther(double input, String outUnit) {
+    void usLiquidGallonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1052,7 +1044,7 @@ public class Conversions {
         }
     }
 
-    public void usLiquidQuartToOther(double input, String outUnit) {
+    void usLiquidQuartToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1133,7 +1125,7 @@ public class Conversions {
         }
     }
 
-    public void usLiquidPintToOther(double input, String outUnit) {
+    void usLiquidPintToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1214,7 +1206,7 @@ public class Conversions {
         }
     }
 
-    public void usLegalCupToOther(double input, String outUnit) {
+    void usLegalCupToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1295,7 +1287,7 @@ public class Conversions {
         }
     }
 
-    public void usFluidOunceToOther(double input, String outUnit) {
+    void usFluidOunceToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1376,7 +1368,7 @@ public class Conversions {
         }
     }
 
-    public void usTablespoonToOther(double input, String outUnit) {
+    void usTablespoonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1457,7 +1449,7 @@ public class Conversions {
         }
     }
 
-    public void usTeaspoonToOther(double input, String outUnit) {
+    void usTeaspoonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1538,7 +1530,7 @@ public class Conversions {
         }
     }
 
-    public void imperialGallonToOther(double input, String outUnit) {
+    void imperialGallonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1619,7 +1611,7 @@ public class Conversions {
         }
     }
 
-    public void imperialQuartToOther(double input, String outUnit) {
+    void imperialQuartToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1700,7 +1692,7 @@ public class Conversions {
         }
     }
 
-    public void imperialPintToOther(double input, String outUnit) {
+    void imperialPintToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1781,7 +1773,7 @@ public class Conversions {
         }
     }
 
-    public void imperialCupToOther(double input, String outUnit) {
+    void imperialCupToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1862,7 +1854,7 @@ public class Conversions {
         }
     }
 
-    public void imperialFluidOunceToOther(double input, String outUnit) {
+    void imperialFluidOunceToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -1943,7 +1935,7 @@ public class Conversions {
         }
     }
 
-    public void imperialTablespoonToOther(double input, String outUnit) {
+    void imperialTablespoonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -2024,7 +2016,7 @@ public class Conversions {
         }
     }
 
-    public void imperialTeaspoonToOther(double input, String outUnit) {
+    void imperialTeaspoonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Cubic metre":
@@ -2105,7 +2097,7 @@ public class Conversions {
         }
     }
 
-    public void secondToOther(double input, String outUnit) {
+    void secondToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2138,7 +2130,7 @@ public class Conversions {
         }
     }
 
-    public void minuteToOther(double input, String outUnit) {
+    void minuteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2171,7 +2163,7 @@ public class Conversions {
         }
     }
 
-    public void hourToOther(double input, String outUnit) {
+    void hourToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2204,7 +2196,7 @@ public class Conversions {
         }
     }
 
-    public void dayToOther(double input, String outUnit) {
+    void dayToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2237,7 +2229,7 @@ public class Conversions {
         }
     }
 
-    public void weekToOther(double input, String outUnit) {
+    void weekToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2270,7 +2262,7 @@ public class Conversions {
         }
     }
 
-    public void monthToOther(double input, String outUnit) {
+    void monthToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2303,7 +2295,7 @@ public class Conversions {
         }
     }
 
-    public void yearToOther(double input, String outUnit) {
+    void yearToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Second":
@@ -2335,7 +2327,7 @@ public class Conversions {
         }
     }
 
-    public void jouleToOther(double input, String outUnit) {
+    void jouleToOther(double input, String outUnit) {
         String inputtest = String.valueOf(input);
         bigInput = new BigDecimal(inputtest);
         switch (outUnit) {
@@ -2382,7 +2374,7 @@ public class Conversions {
         }
     }
 
-    public void kilojouleToOther(double input, String outUnit) {
+    void kilojouleToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2428,7 +2420,7 @@ public class Conversions {
         }
     }
 
-    public void gramCalorieToOther(double input, String outUnit) {
+    void gramCalorieToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2474,7 +2466,7 @@ public class Conversions {
         }
     }
 
-    public void kilocalorieToOther(double input, String outUnit) {
+    void kilocalorieToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2520,7 +2512,7 @@ public class Conversions {
         }
     }
 
-    public void wattHourToOther(double input, String outUnit) {
+    void wattHourToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2566,7 +2558,7 @@ public class Conversions {
         }
     }
 
-    public void kilowattHourToOther(double input, String outUnit) {
+    void kilowattHourToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2612,7 +2604,7 @@ public class Conversions {
         }
     }
 
-    public void electronvoltToOther(double input, String outUnit) {
+    void electronvoltToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         String conv;
         switch (outUnit) {
@@ -2667,7 +2659,7 @@ public class Conversions {
         }
     }
 
-    public void britishThermalUnitToOther(double input, String outUnit) {
+    void britishThermalUnitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2713,7 +2705,7 @@ public class Conversions {
         }
     }
 
-    public void usThermToOther(double input, String outUnit) {
+    void usThermToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2759,7 +2751,7 @@ public class Conversions {
         }
     }
 
-    public void footPoundToOther(double input, String outUnit) {
+    void footPoundToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Joule":
@@ -2805,7 +2797,7 @@ public class Conversions {
         }
     }
 
-    public void atmosphereToOther(double input, String outUnit) {
+    void atmosphereToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Atmosphere":
@@ -2830,7 +2822,7 @@ public class Conversions {
         }
     }
 
-    public void barToOther(double input, String outUnit) {
+    void barToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Atmosphere":
@@ -2855,7 +2847,7 @@ public class Conversions {
         }
     }
 
-    public void pascalToOther(double input, String outUnit) {
+    void pascalToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Atmosphere":
@@ -2880,7 +2872,7 @@ public class Conversions {
         }
     }
 
-    public void poundForceToOther(double input, String outUnit) {
+    void poundForceToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Atmosphere":
@@ -2905,7 +2897,7 @@ public class Conversions {
         }
     }
 
-    public void torrToOther(double input, String outUnit) {
+    void torrToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Atmosphere":
@@ -2930,7 +2922,7 @@ public class Conversions {
         }
     }
 
-    public void mphToOther(double input, String outUnit) {
+    void mphToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Miles per hour":
@@ -2955,7 +2947,7 @@ public class Conversions {
         }
     }
 
-    public void kphToOther(double input, String outUnit) {
+    void kphToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Miles per hour":
@@ -2980,7 +2972,7 @@ public class Conversions {
         }
     }
 
-    public void mpsToOther(double input, String outUnit) {
+    void mpsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Miles per hour":
@@ -3005,7 +2997,7 @@ public class Conversions {
         }
     }
 
-    public void fpsToOther(double input, String outUnit) {
+    void fpsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Miles per hour":
@@ -3030,7 +3022,7 @@ public class Conversions {
         }
     }
 
-    public void knotToOther(double input, String outUnit) {
+    void knotToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Miles per hour":
@@ -3055,7 +3047,7 @@ public class Conversions {
         }
     }
 
-    public void microgramToOther(double input, String outUnit) {
+    void microgramToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3106,7 +3098,7 @@ public class Conversions {
         }
     }
 
-    public void milligramToOther(double input, String outUnit) {
+    void milligramToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3151,7 +3143,7 @@ public class Conversions {
         }
     }
 
-    public void gramToOther(double input, String outUnit) {
+    void gramToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3196,7 +3188,7 @@ public class Conversions {
         }
     }
 
-    public void kilogramToOther(double input, String outUnit) {
+    void kilogramToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3241,7 +3233,7 @@ public class Conversions {
         }
     }
 
-    public void tonneToOther(double input, String outUnit) {
+    void tonneToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3287,7 +3279,7 @@ public class Conversions {
         }
     }
 
-    public void impTonToOther(double input, String outUnit) {
+    void impTonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3333,7 +3325,7 @@ public class Conversions {
         }
     }
 
-    public void usTonToOther(double input, String outUnit) {
+    void usTonToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3379,7 +3371,7 @@ public class Conversions {
         }
     }
 
-    public void stoneToOther(double input, String outUnit) {
+    void stoneToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3425,7 +3417,7 @@ public class Conversions {
         }
     }
 
-    public void poundToOther(double input, String outUnit) {
+    void poundToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3470,7 +3462,7 @@ public class Conversions {
         }
     }
 
-    public void ounceToOther(double input, String outUnit) {
+    void ounceToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Microgram":
@@ -3515,7 +3507,7 @@ public class Conversions {
         }
     }
 
-    public void hertzToOther(double input, String outUnit) {
+    void hertzToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
@@ -3536,7 +3528,7 @@ public class Conversions {
         }
     }
 
-    public void kilohertzToOther(double input, String outUnit) {
+    void kilohertzToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
@@ -3557,7 +3549,7 @@ public class Conversions {
         }
     }
 
-    public void megahertzToOther(double input, String outUnit) {
+    void megahertzToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
@@ -3578,7 +3570,7 @@ public class Conversions {
         }
     }
 
-    public void gigahertzToOther(double input, String outUnit) {
+    void gigahertzToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Hertz":
@@ -3599,7 +3591,7 @@ public class Conversions {
         }
     }
 
-    public void degreeToOther(double input, String outUnit) {
+    void degreeToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3618,7 +3610,7 @@ public class Conversions {
         }
     }
 
-    public void radianToOther(double input, String outUnit) {
+    void radianToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3637,7 +3629,7 @@ public class Conversions {
         }
     }
 
-    public void milliradianToOther(double input, String outUnit) {
+    void milliradianToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3656,7 +3648,7 @@ public class Conversions {
         }
     }
 
-    public void gradianToOther(double input, String outUnit) {
+    void gradianToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3675,7 +3667,7 @@ public class Conversions {
         }
     }
 
-    public void minuteOfArcToOther(double input, String outUnit) {
+    void minuteOfArcToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3694,7 +3686,7 @@ public class Conversions {
         }
     }
 
-    public void secondOfArcToOther(double input, String outUnit) {
+    void secondOfArcToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Degree":
@@ -3713,7 +3705,7 @@ public class Conversions {
         }
     }
 
-    public void usMpgToOther(double input, String outUnit) {
+    void usMpgToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "US Miles per gallon":
@@ -3728,7 +3720,7 @@ public class Conversions {
         }
     }
 
-    public void mpgToOther(double input, String outUnit) {
+    void mpgToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "US Miles per gallon":
@@ -3743,7 +3735,7 @@ public class Conversions {
         }
     }
 
-    public void kplToOther(double input, String outUnit) {
+    void kplToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "US Miles per gallon":
@@ -3758,7 +3750,7 @@ public class Conversions {
         }
     }
 
-    public void litrePer100ToOther(double input, String outUnit) {
+    void litrePer100ToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "US Miles per gallon":
@@ -3773,7 +3765,7 @@ public class Conversions {
         }
     }
 
-    public void bitToOther(double input, String outUnit) {
+    void bitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -3831,7 +3823,7 @@ public class Conversions {
         }
     }
 
-    public void kilobitToOther(double input, String outUnit) {
+    void kilobitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -3887,7 +3879,7 @@ public class Conversions {
         }
     }
 
-    public void megabitToOther(double input, String outUnit) {
+    void megabitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -3941,7 +3933,7 @@ public class Conversions {
         }
     }
 
-    public void gigabitToOther(double input, String outUnit) {
+    void gigabitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -3995,7 +3987,7 @@ public class Conversions {
         }
     }
 
-    public void terabitToOther(double input, String outUnit) {
+    void terabitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4052,7 +4044,7 @@ public class Conversions {
         }
     }
 
-    public void petabitToOther(double input, String outUnit) {
+    void petabitToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4111,7 +4103,7 @@ public class Conversions {
         }
     }
 
-    public void byteToOther(double input, String outUnit) {
+    void byteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4168,7 +4160,7 @@ public class Conversions {
         }
     }
 
-    public void kilobyteToOther(double input, String outUnit) {
+    void kilobyteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4223,7 +4215,7 @@ public class Conversions {
         }
     }
 
-    public void megabyteToOther(double input, String outUnit) {
+    void megabyteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4276,7 +4268,7 @@ public class Conversions {
         }
     }
 
-    public void gigabyteToOther(double input, String outUnit) {
+    void gigabyteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4330,7 +4322,7 @@ public class Conversions {
         }
     }
 
-    public void terabyteToOther(double input, String outUnit) {
+    void terabyteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4387,7 +4379,7 @@ public class Conversions {
         }
     }
 
-    public void petabyteToOther(double input, String outUnit) {
+    void petabyteToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4446,7 +4438,7 @@ public class Conversions {
         }
     }
 
-    public void bitPsToOther(double input, String outUnit) {
+    void bitPsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4471,7 +4463,7 @@ public class Conversions {
         }
     }
 
-    public void kilobitPsToOther(double input, String outUnit) {
+    void kilobitPsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4496,7 +4488,7 @@ public class Conversions {
         }
     }
 
-    public void kilobytePsToOther(double input, String outUnit) {
+    void kilobytePsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4521,7 +4513,7 @@ public class Conversions {
         }
     }
 
-    public void megabitPsToOther(double input, String outUnit) {
+    void megabitPsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4546,7 +4538,7 @@ public class Conversions {
         }
     }
 
-    public void megabytePsToOther(double input, String outUnit) {
+    void megabytePsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4571,7 +4563,7 @@ public class Conversions {
         }
     }
 
-    public void gigabitPsToOther(double input, String outUnit) {
+    void gigabitPsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4596,7 +4588,7 @@ public class Conversions {
         }
     }
 
-    public void gigabytePsToOther(double input, String outUnit) {
+    void gigabytePsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4621,7 +4613,7 @@ public class Conversions {
         }
     }
 
-    public void terabitPsToOther(double input, String outUnit) {
+    void terabitPsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":
@@ -4646,7 +4638,7 @@ public class Conversions {
         }
     }
 
-    public void terabytePsToOther(double input, String outUnit) {
+    void terabytePsToOther(double input, String outUnit) {
         bigInput = new BigDecimal(input);
         switch (outUnit) {
             case "Bit":

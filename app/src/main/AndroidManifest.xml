@@ -8,9 +8,9 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Convert Toolkit"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_spanner"
+        android:label="Conversion Toolkit"
+        android:roundIcon="@mipmap/ic_spanner_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ActivityMain">
@@ -91,6 +91,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityPressure">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivitySoon">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>

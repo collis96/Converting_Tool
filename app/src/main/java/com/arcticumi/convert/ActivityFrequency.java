@@ -77,13 +77,13 @@ public class ActivityFrequency extends AppCompatActivity implements NavigationVi
                 finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.frequency:
                 break;
             case R.id.datatransfer:
-                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.energy:
@@ -91,7 +91,7 @@ public class ActivityFrequency extends AppCompatActivity implements NavigationVi
                 finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.pressure:

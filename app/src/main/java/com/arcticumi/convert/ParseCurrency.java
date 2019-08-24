@@ -20,7 +20,7 @@ public class ParseCurrency {
         return conversions;
     }
 
-    public boolean parse(String xmlData){
+    public boolean parse(String xmlData) {
         boolean status = true;
         FeedItem currentRecord = null;
         boolean inItem = false;
@@ -32,12 +32,12 @@ public class ParseCurrency {
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(new StringReader(xmlData));
             int eventType = xpp.getEventType();
-            while(eventType != XmlPullParser.END_DOCUMENT){
+            while (eventType != XmlPullParser.END_DOCUMENT) {
                 String tagName = xpp.getName();
-                switch(eventType){
+                switch (eventType) {
                     case XmlPullParser.START_TAG:
                         Log.d(TAG, "parse: Starting tag for " + tagName);
-                        if("item".equalsIgnoreCase(tagName)){
+                        if ("item".equalsIgnoreCase(tagName)) {
                             inItem = true;
                             currentRecord = new FeedItem();
                         }
@@ -47,8 +47,8 @@ public class ParseCurrency {
                         break;
                     case XmlPullParser.END_TAG:
                         Log.d(TAG, "parse: Ending tag for " + tagName);
-                        if(inItem){
-                            if("item".equalsIgnoreCase(tagName)){
+                        if (inItem) {
+                            if ("item".equalsIgnoreCase(tagName)) {
                                 conversions.add(currentRecord);
                                 inItem = false;
                             } else if ("baseCurrency".equalsIgnoreCase(tagName)) {
@@ -56,7 +56,7 @@ public class ParseCurrency {
                             } else if ("targetCurrency".equalsIgnoreCase(tagName)) {
                                 currentRecord.setTargetCurrency(textValue);
                             } else if ("exchangeRate".equalsIgnoreCase(tagName)) {
-                                textValue = textValue.replace(",","");
+                                textValue = textValue.replace(",", "");
                                 currentRecord.setExchangeRate(Double.parseDouble(textValue));
                             }
                         }

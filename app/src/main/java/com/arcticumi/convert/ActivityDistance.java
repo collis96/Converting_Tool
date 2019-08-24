@@ -20,10 +20,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ActivityDistance extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private double input;
-    private double output;
+    private String output;
     private String inputUnit, outputUnit;
     private static final String TAG = "ActivityDistance";
     private DrawerLayout drawer;
@@ -71,7 +74,7 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.frequency:
@@ -79,7 +82,7 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.datatransfer:
-                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.energy:
@@ -87,7 +90,7 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
                 finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.pressure:
@@ -105,7 +108,7 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_distance);
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-
+        getSupportActionBar().setTitle(null);
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -165,37 +168,40 @@ public class ActivityDistance extends AppCompatActivity implements NavigationVie
                     switch (inputUnit) {
                         case "Inches":
                             convert.inchesToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                         case "Feet":
                             convert.feetToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                         case "Miles":
                             convert.milesToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                         case "Centimetres":
                             convert.centiToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                         case "Metres":
                             convert.metresToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                         case "Kilometres":
                             convert.kilometreToOther(input, outputUnit);
-                            output = convert.getDoubleOut();
+                            output = convert.getStrOutput();
                             break;
                     } //todo put in another function
                     Log.d(TAG, "onClick: Input value after conversion = " + input);
                     Log.d(TAG, "onClick: Output value after conversion = " + output);
-                    Format fm = new Format(inputUnit, outputUnit, output);
-                    outputUnit = fm.getOutput();
                     String inputSummary;
                     inputSummary = input + " " + inputUnit + " =";
+                    BigDecimal temp = new BigDecimal(output);
+                    temp = temp.setScale(2, RoundingMode.CEILING);
+                    output = String.valueOf(temp);
+                    String outputString;
+                    outputString = output + " " + outputUnit;
                     tvInputSummary.setText(inputSummary);
-                    tvOutput.setText(outputUnit);
+                    tvOutput.setText(outputString);
                 } catch (NumberFormatException ignored) {
                 } catch (NullPointerException e) {
                     Log.e(TAG, "afterTextChanged: " + e);

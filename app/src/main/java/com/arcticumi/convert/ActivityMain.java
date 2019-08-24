@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
 
 public class ActivityMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -69,7 +70,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.fuel:
-                startActivity(new Intent(this, ActivityFuelEconomy.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.frequency:
@@ -77,7 +78,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.datatransfer:
-                startActivity(new Intent(this, ActivityDataTranserRate.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.energy:
@@ -85,7 +86,7 @@ public class ActivityMain extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.planeangle:
-                startActivity(new Intent(this, ActivityPlaneAngle.class));
+                startActivity(new Intent(this, ActivitySoon.class));
                 finish();
                 break;
             case R.id.pressure:
