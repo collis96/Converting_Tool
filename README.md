@@ -14,15 +14,4 @@ This is an android project that is intended to be a toolset for converting diffe
 ##### Early Functionality
 <a href="https://ibb.co/4dcmm3V"><img src="https://i.ibb.co/fvb11Lx/Screenshot-1562447372.png" alt="Screenshot-1562447372" border="0" height="480" width="260" /></a>
 
-#### Features:
-
-- [x] Implement Imperial and Metric systems
-- [x] Implement Distance conversion
-- [x] New design
-- [ ] Add Time conversion
-- [ ] Add Temperature Conversion
-- [ ] Add Currency conversion
-
-#### Play Store Link:
-
-Coming soon
+Play Store Link: https://play.google.com/store/apps/details?id=com.arcticumi.Conversion_Toolkit&hl=en_GB
