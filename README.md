@@ -1,6 +1,8 @@
 # Unit Conversion Tool (Mobile, Android)
 
-This is an android project that is intended to be a toolset for converting different units.
+This is an android project for converting units.
+
+Play Store Link: https://play.google.com/store/apps/details?id=com.arcticumi.Conversion_Toolkit&hl=en_GB
 
 #### UI/UX Design Phase
 
@@ -14,4 +16,3 @@ This is an android project that is intended to be a toolset for converting diffe
 ##### Early Functionality
 <a href="https://ibb.co/4dcmm3V"><img src="https://i.ibb.co/fvb11Lx/Screenshot-1562447372.png" alt="Screenshot-1562447372" border="0" height="480" width="260" /></a>
 
-Play Store Link: https://play.google.com/store/apps/details?id=com.arcticumi.Conversion_Toolkit&hl=en_GB
