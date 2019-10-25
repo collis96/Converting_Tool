@@ -10,6 +10,7 @@ Play Store Link: https://play.google.com/store/apps/details?id=com.arcticumi.Con
 
 ##### Expressed User requirements:
 
+ - Mobile Android Application
  - As many areas of conversion availible
  - Live currency conversion
  - Easy to navigate interface
